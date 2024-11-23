@@ -1,7 +1,6 @@
 ## Use case and why you should consider caching?
 
-
-![[Pasted image 20241123172123.png]]
+![Caching](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241123172123.png)
 
 - Reduced Latency
 - Reduced Load on the database
@@ -33,19 +32,21 @@
 # Types of Caches by design
 
 1. Global Cache
-![[Pasted image 20241123173637.png]]
 
-2. Distributed Cache
-![[Pasted image 20241123173802.png]]
+![Global Cache](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241123173637.png)
 
+3. Distributed Cache
 
-![[Pasted image 20241123173920.png]]
+![Distributed Cache](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241123173802.png)
+
+![Distributed Cache 2](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241123173920.png)
 
 ## Caching Strategies and Invalidation
 
 
 1. Write-Around Cache (Cache-aside , Lazy-Loading) - Reactive Approach
-![[Pasted image 20241123174837.png]]
+
+![Write-Around Cache ](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241123174837.png)
 
 
 The **Cache-aside** pattern, also known as **Lazy-Loading**, is one of the most common caching strategies. In this pattern, the application is responsible for managing the cache. It checks the cache for data and, if the data is not present (a **cache miss**), it fetches the data from the underlying data store (e.g., a database) and populates the cache.
@@ -81,7 +82,7 @@ The **Cache-aside** pattern, also known as **Lazy-Loading**, is one of the most 
 
 2. Write-Through Cache - Proactive approach
 
-![[Pasted image 20241123175805.png]]
+![Write-Through Cache ](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241123175805.png)
 
 A **Write-through** cache strategy ensures that whenever data is written to the cache, it is also immediately written to the underlying data store (e.g., database). This ensures that the cache and the data store are always synchronized.
 
@@ -112,7 +113,7 @@ A **Write-through** cache strategy ensures that whenever data is written to the 
 
 3. Write-Back (Write-behind) Cache
 
-![[Pasted image 20241123181016.png]]
+![Write-Back Cache ](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241123181016.png)
 
 
 In a **Write-behind** or **Write-back** cache strategy, data is written to the cache first, and then asynchronously written to the underlying data store after a delay. The cache can also store data for later persistence to the database.

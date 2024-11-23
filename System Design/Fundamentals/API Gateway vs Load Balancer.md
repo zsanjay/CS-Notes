@@ -3,8 +3,12 @@ References :
 	https://konghq.com/blog/engineering/api-gateway-vs-load-balancer
 
 https://www.youtube.com/watch?v=UX11tVIkYUg&list=PL5Lsd0YA4OMFvX88T5xH93NqBALI7TENz&index=5
-
-![API Gateway vs Load Balancer](../Pasted image 20241123185513.png)
+one 
+![API Gateway vs Load Balancer](./Pasted image 20241123185513.png)
+two
+![API Gateway vs Load Balancer](.Pasted image 20241123185513.png)
+three
+![API Gateway vs Load Balancer](Pasted image 20241123185513.png)
 
 ## Reverse Proxy
 

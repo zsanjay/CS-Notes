@@ -8,7 +8,7 @@ one
 two
 ![API Gateway vs Load Balancer](.Pasted image 20241123185513.png)
 three
-![API Gateway vs Load Balancer](Pasted image 20241123185513.png)
+![API Gateway vs Load Balancer](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241123120457.png)
 
 ## Reverse Proxy
 

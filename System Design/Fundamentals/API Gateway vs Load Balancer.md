@@ -4,7 +4,7 @@ References :
 
 https://www.youtube.com/watch?v=UX11tVIkYUg&list=PL5Lsd0YA4OMFvX88T5xH93NqBALI7TENz&index=5
 
-![[Pasted image 20241123185513.png]]
+![API Gateway vs Load Balancer](../Pasted image 20241123185513.png)
 
 ## Reverse Proxy
 

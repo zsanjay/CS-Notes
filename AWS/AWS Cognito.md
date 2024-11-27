@@ -15,24 +15,21 @@
 -  User Pools
 - Identity Pools
 
-
-![[Pasted image 20241124184836.png]]
+![AWS Cognito](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124184836.png)
 
 ### Creating a User Pool
 
-![[Pasted image 20241124184941.png]]
-
+![User Pool](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124184941.png)
 
 ### User Pool Hosted UI
 
-![[Pasted image 20241124185400.png]]
-
+![User Pool Hosted UI](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124185400.png)
 
 There are two users created in the user pool, one with sign in page in the left of the image and other with the identity provider - Google in this case.
 
 ### Application Integration with User Pools
 
-![[Pasted image 20241124190103.png]]
+![Application Integration with User Pools](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124190103.png)
 
 
 1. Authenticate the user with User pool hosted UI and cognito will generate the access token and use this access token to access the backend APIs, backend service needs to verify JWT token using cognito service and after verification grant access to the user.
@@ -56,58 +53,49 @@ There are two users created in the user pool, one with sign in page in the left 
 - Guest access for restrictive authorization.
 - Dynamically select IAM Roles via **Token Attributes** or **IAM Policies**
 
+![User Pool 1](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124192334.png)
 
-![[Pasted image 20241124192334.png]]
+![User Pool 2](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124192514.png)
 
-
-![[Pasted image 20241124192514.png]]
-
-
-![[Pasted image 20241124192758.png]]
-
+![User Pool 3](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124192758.png)
 
 ### Integration of AWS Cognito User Pool with API Gateway
 
 ###  Create App Client
 
-![[Pasted image 20241124193452.png]]
-
+![App Client](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124193452.png)
 
 ### Get the App Client Id and Secret.
 
-![[Pasted image 20241124193611.png]]
+![App Client Id and Secret](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124193611.png)
 
 ### App integration with Cognito User Pool.
 
-![[Pasted image 20241124193918.png]]
-
+![App integration with Cognito User Pool](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124193918.png)
 
 ### Configure a domain name to activate the hosted UI
 
-![[Pasted image 20241124194315.png]]
+![Configure a domain name to activate the hosted UI](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124194315.png)
 
 ### Create an API Gateway for REST APIs
 
-![[Pasted image 20241124194938.png]]
-
+![Create an API Gateway for REST APIs](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124194938.png)
 
 ### Create a Resource
 
-![[Pasted image 20241124195118.png]]
+![Create a Resource](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124195118.png)
 
 ### Create a Get API and integrate with Lambda Function
 
-![[Pasted image 20241124195057.png]]
-
+![Create a Get API and integrate with Lambda Function](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124195057.png)
 
 ### Create new Authorizers to connect API gateway with User Pools
 
-![[Pasted image 20241124195911.png]]
+![Create new Authorizers to connect API gateway with User Pools](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124195911.png)
 
 ### Connect API Gateway with Authorizer
 
-![[Pasted image 20241124200802.png]]
-
+![Connect API Gateway with Authorizer](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124200802.png)
 
 There are three types of tokens:
 

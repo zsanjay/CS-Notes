@@ -32,9 +32,7 @@ Some entities, such as a Customer, can have a large number of events. In order t
 
 The following diagram shows how it persist orders.
 
-![[Pasted image 20241123164754.png]]
-
-
+![Event Sourcing Pattern](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241123164754.png)
 
 Instead of simply storing the current state of each order as a row in an `ORDERS` table, the application persists each `Order` as a sequence of events. The `CustomerService` can subscribe to the order events and update its own state.
 

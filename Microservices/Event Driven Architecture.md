@@ -1,4 +1,4 @@
-![[Pasted image 20241124162305.png]]
+![Event-Driven Architecture](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124162305.png)
 
 
 **Event-Driven Architecture (EDA)** is an architectural pattern in which the flow of the system is determined by events. These events represent state changes or actions that occur within a system and trigger other components to react accordingly. In EDA, events are the central focus, and the system is built around detecting, producing, and responding to events.
@@ -104,5 +104,4 @@ Each component works asynchronously and reacts to events as they occur, and serv
 
 ### CQRS (Command Query Responsibility Segregation)
 
-![[Pasted image 20241124162503.png]]
-
+![CQRS](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124162503.png)

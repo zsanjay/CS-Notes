@@ -11,8 +11,7 @@ Raft's approach is surprisingly efficient given its simplicity as, unlike Paxos,
 2. Simplification
 3. Underlying algorithm
 
-
-![[Pasted image 20241124155527.png]]
+![Distributed Consensus](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124155527.png)
 
 ### Configuration
 
@@ -24,8 +23,7 @@ There are 2 clients and 3 servers in the above image and among these 3 server on
 1. The leader appends each operation to its log and asks the other servers to do the same.
 2. Once a majority of servers have acknowledged, the leader can mark the operation as committed.
 
-
-![[Pasted image 20241124160129.png]]
+![Normal operation](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124160129.png)
 
 
 ### Handling leader failure.
@@ -33,8 +31,7 @@ There are 2 clients and 3 servers in the above image and among these 3 server on
 - If a follower believes that the leader has failed then it becomes a candidate and asks the other servers to vote for it.
 - If a candidate receives votes from a majority of servers then becomes a leader.
 
-
-![[Pasted image 20241124160439.png]]
+![Handling leader failure](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124160439.png)
 
 
 ### The key difference
@@ -43,8 +40,7 @@ There are 2 clients and 3 servers in the above image and among these 3 server on
 - Paxos followers will vote for any candidate, but the votes must include any log entries that the candidate is missing.
 - Raft followers will only vote for a candidate if the candidate's log is at least as up-to-date.
 
-
-![[Pasted image 20241124160953.png]]
+![The key difference](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124160953.png)
 
 ### Which is the best algorithm?
 

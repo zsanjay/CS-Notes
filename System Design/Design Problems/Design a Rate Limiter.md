@@ -1,8 +1,7 @@
 
 ### Clarify Requirement
 
-![[Pasted image 20241126154842.png]]
-
+![Clarify Requirement](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241126154842.png)
 
 ### Why we need a Rate limiter?
 
@@ -39,7 +38,7 @@
 
 ### Solution for a single server.
 
-![[Pasted image 20241126155543.png]]
+![Solution for a single server](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241126155543.png)
 
 - Let’s implement a rate limiting solution for a single server first. So, no communication between servers just yet.
 - The first citizen of the rate limiting solution on the service host is the rules retriever.
@@ -79,9 +78,7 @@
 
 ### 1. Token Bucket Algorithm
 
-![[Pasted image 20241126155858.png]]
-
-
+![Token Bucket Algorithm](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241126155858.png)
 
 - There are many different algorithms to solve this problem. You may find inspiration by looking into Google Guava RateLimiter class. Or think about how fixed and sliding window paradigms can be applied. But probably the simplest algorithm out there is the Token Bucket algorithm.
 - The token bucket algorithm is based on an analogy of a bucket filled with tokens.
@@ -110,8 +107,7 @@
 
 #### Interfaces & Classes
 
-![[Pasted image 20241126160101.png]]
-
+![Interfaces & Classes](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241126160101.png)
 
 - Job Scheduler interface is responsible for scheduling a job that runs every several seconds and retrieves rules from Rules service.
 - RulesCache interface is responsible for storing rules in memory.
@@ -171,9 +167,7 @@
 
 #### By the way, ideas we will discuss next are applicable not only for rate limiting solution, but many other distributed systems that require data sharing between all hosts in a cluster in a real time.
 
-
-![[Pasted image 20241126160500.png]]
-
+![Distributed Rate Limiter](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241126160500.png)
 
 - The first approach is to tell everyone everything. It means that every host in the cluster knows about every other host in the cluster and share messages with each one of them. You may also heard a term full mesh that describes this network topology. How do hosts discover each other? When a new host is added, how does everyone else know? And there are several approaches used for hosts discovery. One option is to use a 3-rd party service which will listen to heartbeats coming from every host. As long as heartbeats come, host is keep registered in the system. If heartbeats stop coming, the service unregister host that is no longer alive. And all hosts in our cluster ask this 3-rd party service for the full list of members. Another option is to resolve some user provided information. For example, user specifies a VIP and because VIP knows about all the hosts behind it, we can use this information to obtain all the members. Or we can rely on a less flexible but still a good option when user provides a list of hosts via some configuration file. We then need a way to deploy this file across all cluster nodes every time this list changes. Full mesh broadcasting is relatively straightforward to implement. But the main problem with this approach is that it is not scalable. Number of messages grows quadratically with respect to the number of hosts in a cluster. Approach works well for small clusters, but we will not be able to support big clusters.
 
@@ -199,8 +193,7 @@
 
 ### How do we integrate all?
 
-![[Pasted image 20241126160734.png]]
-
+![How do we integrate all](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241126160734.png)
 
 ### There are two options. And they are pretty standard. We can run Rate Limiter as a part of the service process or as its own process (daemon).
 
@@ -243,8 +236,7 @@
 
 ### Summary
 
-![[Pasted image 20241126161005.png]]
-
+![Summary](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241126161005.png)
 
 - Service owners can use a self-service tools for rules management.
 - Rules are stored in the database.

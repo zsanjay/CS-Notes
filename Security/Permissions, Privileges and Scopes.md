@@ -105,37 +105,7 @@ Once you know what permissions, privileges, and scopes are, you might assume tha
 
 In a delegated scenario, not all the permissions on a resource should necessarily be made available to be requested as scopes. You could reserve some permissions for the user and decide that they are not delegable. For example, you could decide that the permission to delete a document is never delegated to a third-party application.
 
-So you might think that this supposed mapping is not between scopes and permissions but between scopes and privileges. This way, you can't map a scope to a permission not assigned to the user. Actually, this is not accurate either. There are scopes that don't have a match among the resource's permissions or the user's privileges. Consider the 
-
-```javascript
-openid
-```
-
- scope defined by [OpenID Connect specifications](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest). This scope does not correspond to any permission on a specific user's resource. It is a request for the authorization server to return an ID token as the result of the user's authentication. The same applies to the other [scopes defined by OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims): 
-
-```javascript
-profile
-```
-
-, 
-
-```javascript
-email
-```
-
-, 
-
-```javascript
-address
-```
-
-, and 
-
-```javascript
-phone
-```
-
-.
+So you might think that this supposed mapping is not between scopes and permissions but between scopes and privileges. This way, you can't map a scope to a permission not assigned to the user. Actually, this is not accurate either. There are scopes that don't have a match among the resource's permissions or the user's privileges. Consider the openid scope defined by [OpenID Connect specifications](https://openid.net/specs/openid-connect-core-1_0.html#AuthRequest). This scope does not correspond to any permission on a specific user's resource. It is a request for the authorization server to return an ID token as the result of the user's authentication. The same applies to the other [scopes defined by OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#ScopeClaims): profile, email, address, and phone.
 
 So, you should avoid this unconscious mapping between scopes and permissions.
 

@@ -116,5 +116,4 @@ We introduced a pair of gateways that apply all the policies we need. Since thos
 
 Load balancers and API gateway can improve the quality, security, performance and reliability of services. They work well together and are optimized for complementary purposes.
 
-
 Note - when we have system under not much pressure (like 500 requests/hour) and we don't have complicated microarchitecture with a lot of different APIs reverse proxy + load balancer is enough. Otherwise we can use API Gateway to take benefit from e.g service discovery.

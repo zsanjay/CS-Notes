@@ -82,7 +82,6 @@ As the number of SSTables grows, the LSM Tree performs compaction to merge the s
 
 In our bookstore example, the data after compaction looks like this:
 
-[
 
 ![](https://substackcdn.com/image/fetch/w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7e716189-fb09-4175-bcf7-df7231a45714_2306x1584.png)
 

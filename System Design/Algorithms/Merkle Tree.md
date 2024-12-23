@@ -12,16 +12,12 @@ In a Merkle Tree, each **leaf node** represents a **hash** of a piece of dat
 ### **Merkle Tree Hashing Process:**
 
 1. **Data Partitioning**:
-    
     - Divide the data into smaller chunks (blocks) to hash.
 2. **Leaf Nodes**:
-    
     - Each data block is hashed using a cryptographic hash function (like SHA-256).
 3. **Internal Nodes**:
-    
     - The hash of each parent node is calculated by combining (typically concatenating) the hashes of its child nodes and applying the hash function again.
 4. **Root Node**:
-    
     - The root node’s hash represents the overall dataset's integrity.
 
 ### **Example:**
@@ -92,13 +88,14 @@ public class MerkleTree {
 1. **`sha256` Method**:
     
     - This method takes an input string and returns its **SHA-256** hash. It uses the `MessageDigest` class from Java's standard library.
-2. **`buildMerkleTree` Method**:
+
+1. **`buildMerkleTree` Method**:
     
     - First, we generate the leaf nodes by hashing the data blocks (strings in this case).
     - Then, we repeatedly combine pairs of hashes (concatenate them) and hash them again to generate the parent nodes. This continues until only one node remains — the **root**.
     - If the number of nodes at any level is odd, the last node is carried over to the next level.
+
 3. **`main` Method**:
-    
     - Example data blocks (strings) are provided, and the Merkle root hash is computed and displayed.
 
 ### **How It Works:**

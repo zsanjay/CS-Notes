@@ -33,7 +33,7 @@ There are five [dark matter forces](https://microservices.io/post/microservices
 
 Design an architecture that structures the application as a single deployable/executable component that uses a single database. The component contains all of the application’s subdomains. Since there’s a single component, all operations are local.
 
-![[Pasted image 20241123120457.png]]
+![Monolithic](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241123120457.png)
 
 
 ## Example
@@ -42,7 +42,7 @@ Let’s imagine that you are building an e-commerce application that takes order
 
 The application is deployed as a single monolithic application. For example, a Java web application consists of a single WAR file that runs on a web container such as Tomcat. A Rails application consists of a single directory hierarchy deployed using either, for example, Phusion Passenger on Apache/Nginx or JRuby on Tomcat. You can run multiple instances of the application behind a load balancer in order to scale and improve availability.
 
-![[Pasted image 20241123120920.png]]
+![Monolithic_1](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241123120920.png)
 
 ## Resulting context
 

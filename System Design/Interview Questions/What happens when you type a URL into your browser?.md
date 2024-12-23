@@ -1,4 +1,4 @@
-![[Pasted image 20241211115607.png]]
+![What happens when you type a URL into your browser](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241211115607.png)
 
 
 1. **Browser parses the URL**  

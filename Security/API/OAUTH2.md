@@ -1,6 +1,6 @@
 https://auth0.com/intro-to-iam/what-is-oauth-2
 
-![[Pasted image 20241211131623.png]]
+![OAuth 2](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241211131623.png)
 
 # What is OAuth 2.0?
 

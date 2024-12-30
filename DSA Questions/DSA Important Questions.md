@@ -2668,6 +2668,449 @@ return maxArea;
 
 Time Complexity : O(n)
 Space Complexity : O(1)
+
+34. [Sort List](https://leetcode.com/problems/sort-list/)
+
+```java
+
+/**
+
+* Definition for singly-linked list.
+
+* public class ListNode {
+
+* int val;
+
+* ListNode next;
+
+* ListNode() {}
+
+* ListNode(int val) { this.val = val; }
+
+* ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+
+* }
+
+*/
+
+class Solution {
+
+public ListNode sortList(ListNode head) {
+
+if(head == null || head.next == null) {
+
+return head;
+
+}
+
+  
+
+ListNode prev = null, slow = head, fast = head;
+
+  
+
+while(fast != null && fast.next != null) {
+
+prev = slow;
+
+slow = slow.next;
+
+fast = fast.next.next;
+
+}
+
+  
+
+prev.next = null;
+
+  
+
+ListNode l1 = sortList(head);
+
+ListNode l2 = sortList(slow);
+
+  
+
+return merge(l1, l2);
+
+  
+
+}
+
+  
+
+private ListNode merge(ListNode l1, ListNode l2) {
+
+  
+
+ListNode l = new ListNode(0) , p = l;
+
+  
+
+while(l1 != null && l2 != null) {
+
+if(l1.val < l2.val) {
+
+p.next = l1;
+
+l1 = l1.next;
+
+} else {
+
+p.next = l2;
+
+l2 = l2.next;
+
+}
+
+p = p.next;
+
+}
+
+  
+
+if(l1 != null)
+
+p.next = l1;
+
+  
+
+if(l2 != null)
+
+p.next = l2;
+
+  
+
+return l.next;
+
+}
+
+}
+```
+
+Time Complexity : O(nlogn)
+Space Complexity : O(1)
+
+35. [Perfect Squares](https://leetcode.com/problems/perfect-squares/)
+
+```java
+
+class Solution {
+
+public int numSquares(int n) {
+
+if(n == 1) {
+
+return n;
+
+}
+
+  
+
+int[] dp = new int[n + 1];
+
+Arrays.fill(dp, n);
+
+dp[0] = 0;
+
+return helper(n, dp);
+
+}
+
+  
+
+private int helper(int n, int[] dp) {
+
+  
+
+for(int i = 1; i <= n; i++) {
+
+for(int j = 1; j <= i; j++) {
+
+int square = j * j;
+
+if(i - square < 0) {
+
+break;
+
+}
+
+dp[i] = Math.min(dp[i] , 1 + dp[i - square]);
+
+}
+
+}
+
+  
+
+return dp[n];
+
+}
+
+}
+```
+
+Time Complexity : O(n * n ^ 1/2)  - n * square root of N
+Space Complexity : O(n)
+
+https://www.youtube.com/watch?v=HLZLwjzIVGo
+
+36. [Insert Delete GetRandom O(1)](https://leetcode.com/problems/insert-delete-getrandom-o1/)
+
+
+```java
+class RandomizedSet {
+
+    private Map<Integer, Integer> map;
+    private List<Integer> list;
+    private Random random;
+
+
+    public RandomizedSet() {
+        list = new ArrayList<>();
+        map = new HashMap<>();
+        random = new Random();
+    }
+    
+    public boolean insert(int val) {
+        if(map.containsKey(val)) {
+            return false;
+        }
+
+        list.add(val);
+        map.put(val, list.size() - 1);
+        return true;
+    }
+    
+    public boolean remove(int val) {
+        if(!map.containsKey(val)) return false;
+        
+        int index = map.get(val);
+        // Update the list index to the last value
+        list.set(index, list.get(list.size() - 1));
+        // Remapping of value in the map.
+        map.put(list.get(index) , index);
+
+        // Remove the last value from the list
+        list.remove(list.size() - 1);
+        // Remove the value from the Map
+        map.remove(val);
+
+        return true;
+    }
+    
+    public int getRandom() {
+       return list.get(random.nextInt(list.size()));
+    }
+}
+
+/**
+ * Your RandomizedSet object will be instantiated and called as such:
+ * RandomizedSet obj = new RandomizedSet();
+ * boolean param_1 = obj.insert(val);
+ * boolean param_2 = obj.remove(val);
+ * int param_3 = obj.getRandom();
+ */
+```
+
+Time Complexity : O(1)
+Space Complexity : O(n)
+
+37. [Min Stack](https://leetcode.com/problems/min-stack/)
+
+```java
+
+class MinStack {
+
+  
+
+private Stack<Integer> stack;
+
+private int min = Integer.MAX_VALUE;
+
+  
+
+public MinStack() {
+
+stack = new Stack<>();
+
+}
+
+public void push(int val) {
+
+stack.add(val);
+
+min = Math.min(min , val);
+
+}
+
+public void pop() {
+
+int val = stack.pop();
+
+if(min == val) {
+
+min = Integer.MAX_VALUE;
+
+for(int num : stack) {
+
+min = Math.min(min , num);
+
+}
+
+}
+
+}
+
+public int top() {
+
+return stack.peek();
+
+}
+
+public int getMin() {
+
+return min;
+
+}
+
+}
+
+  
+
+/**
+
+* Your MinStack object will be instantiated and called as such:
+
+* MinStack obj = new MinStack();
+
+* obj.push(val);
+
+* obj.pop();
+
+* int param_3 = obj.top();
+
+* int param_4 = obj.getMin();
+
+*/
+```
+
+Time Complexity : O(1)
+Space Complexity : O(n)
+
+38. [Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
+
+
+```java
+class Solution {
+
+public int lengthOfLIS(int[] nums) {
+
+int[] dp = new int[nums.length];
+
+Arrays.fill(dp, -1);
+
+int maxLen = Integer.MIN_VALUE;
+
+  
+
+for(int i = 0; i < nums.length; i++) {
+
+int val = 0;
+
+for(int j = i - 1; j >= 0; j--) {
+
+if(nums[j] < nums[i]) {
+
+val = Math.max(val , dp[j]);
+
+}
+
+}
+
+dp[i] = val + 1;
+
+maxLen = Math.max(dp[i] , maxLen);
+
+}
+
+return maxLen;
+
+}
+
+}
+
+```
+
+Time Complexity = O(n * n)
+Space Complexity = O(n)
+
+39. [Count and Say](https://leetcode.com/problems/count-and-say/)
+
+```java
+
+class Solution {
+
+public String countAndSay(int n) {
+
+String result = "1";
+
+  
+
+if(n == 1) {
+
+return result;
+
+}
+
+  
+
+for(int i = 1; i < n; i++) {
+
+result = rle(result);
+
+}
+
+return result;
+
+}
+
+  
+
+private String rle(String str) {
+
+int index = 0;
+
+String rle = "";
+
+while(index < str.length()) {
+
+int count = 1;
+
+int j = index;
+
+while(j < str.length() - 1 && str.charAt(j) == str.charAt(j + 1)) {
+
+count++;
+
+j++;
+
+}
+
+rle += count + "" + str.charAt(index);
+
+index = j + 1;
+
+}
+
+  
+
+return rle;
+
+}
+
+}
+```
 ### References
 
 https://serhatgiydiren.com/step-by-step-tech-interview-preparation-guide/

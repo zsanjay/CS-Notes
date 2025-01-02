@@ -6,32 +6,21 @@ React components are JavaScript functions that return markup:
 
 ```js
 function MyButton() {  
-
 return (  
-
-<button>I'm a button</button>  
-
+	<button>I'm a button</button>  
 );  
-
 }
 ```
 
 Now that you’ve declared `MyButton`, you can nest it into another component:
 
-```js
-
+```jsx
 export default function MyApp() {  
-
 return (  
-
-<div>  
-
-<h1>Welcome to my app</h1>  
-
-<MyButton />  
-
-</div>  
-
+	<div>  
+		<h1>Welcome to my app</h1>  
+		<MyButton />  
+	</div>  
 );  
 
 }
@@ -41,8 +30,7 @@ Notice that `<MyButton />` starts with a capital letter. That’s how you know i
 
 Have a look at the result:
 
-```js
-
+```jsx
 function MyButton() {
   return (
     <button>
@@ -59,7 +47,6 @@ export default function MyApp() {
     </div>
   );
 }
-
 ```
 
 The `export default` keywords specify the main component in the file. If you’re not familiar with some piece of JavaScript syntax, [MDN](https://developer.mozilla.org/en-US/docs/web/javascript/reference/statements/export) and [javascript.info](https://javascript.info/import-export) have great references.
@@ -70,22 +57,14 @@ The markup syntax you’ve seen above is called _JSX_. It is optional, but most 
 
 JSX is stricter than HTML. You have to close tags like `<br />`. Your component also can’t return multiple JSX tags. You have to wrap them into a shared parent, like a `<div>...</div>` or an empty `<>...</>` fragment or wrapper:
 
-```js
-
+```jsx
 function AboutPage() {  
-
 return (  
-
-<>  
-
-<h1>About</h1>  
-
-<p>Hello there.<br />How do you do?</p>  
-
-</>  
-
+	<>  
+	<h1>About</h1>  
+	<p>Hello there.<br />How do you do?</p>  
+	</>  
 );  
-
 }
 ```
 
@@ -103,9 +82,7 @@ Then you write the CSS rules for it in a separate CSS file:
 
 ```css
 .avatar {  
-
-border-radius: 50%;  
-
+	border-radius: 50%;  
 }
 ```
 
@@ -113,38 +90,25 @@ border-radius: 50%;
 
 JSX lets you put markup into JavaScript. Curly braces let you “escape back” into JavaScript so that you can embed some variable from your code and display it to the user. For example, this will display `user.name`:
 
-```js
+```jsx
 return (  
-
-<h1>  
-
-{user.name}  
-
-</h1>  
-
+	<h1>  
+		{user.name}  
+	</h1>  
 );
 ```
 
 You can also “escape into JavaScript” from JSX attributes, but you have to use curly braces _instead of_ quotes. For example, `className="avatar"` passes the `"avatar"` string as the CSS class, but `src={user.imageUrl}` reads the JavaScript `user.imageUrl` variable value, and then passes that value as the `src` attribute:
 
-```js
+```jsx
 return (  
-
-<img  
-
-className="avatar"  
-
-src={user.imageUrl}  
-
-/>  
-
+	<img className="avatar" src={user.imageUrl} />  
 );
 ```
 
 You can put more complex expressions inside the JSX curly braces too, for example, [string concatenation](https://javascript.info/operators#string-concatenation-with-binary):
 
-```js
-
+```jsx
 const user = {
   name: 'Hedy Lamarr',
   imageUrl: 'https://i.imgur.com/yXOvdOSs.jpg',
@@ -177,25 +141,14 @@ In React, there is no special syntax for writing conditions. Instead, you’ll u
 
 ```jsx
 let content;  
-
 if (isLoggedIn) {  
-
-content = <AdminPanel />;  
-
+	content = <AdminPanel />;  
 } else {  
-
-content = <LoginForm />;  
-
+	content = <LoginForm />;  
 }  
 
 return (  
-
-<div>  
-
-{content}  
-
-</div>  
-
+	<div>{content}</div>  
 );
 ```
 
@@ -203,11 +156,7 @@ If you prefer more compact code, you can use the [conditional `?` operator.](htt
 
 ```jsx
 <div>  
-{isLoggedIn ? (  
-	<AdminPanel />  
-) : (  
-	<LoginForm />  
-)}  
+{isLoggedIn ? (<AdminPanel />) : (<LoginForm />)}  
 </div>
 ```
 
@@ -219,9 +168,7 @@ When you don’t need the `else` branch, you can also use a shorter [logical `&&
 </div>
 ```
 
-
 ## Rendering lists
-
 
 You will rely on JavaScript features like [`for` loop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for) and the [array `map()` function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) to render lists of components.
 
@@ -239,26 +186,19 @@ Inside your component, use the `map()` function to transform an array of product
 
 ```jsx
 const listItems = products.map(product =>  
-
 <li key={product.id}>  
-
-{product.title}  
-
+	{product.title}  
 </li>  
-
 );  
 
 return (  
-
-<ul>{listItems}</ul>  
-
+	<ul>{listItems}</ul>  
 );
 ```
 
 Notice how `<li>` has a `key` attribute. For each item in a list, you should pass a string or a number that uniquely identifies that item among its siblings. Usually, a key should be coming from your data, such as a database ID. React uses your keys to know what happened if you later insert, delete, or reorder the items.
 
 ```jsx
-
 const products = [
   { title: 'Cabbage', isFruit: false, id: 1 },
   { title: 'Garlic', isFruit: false, id: 2 },
@@ -271,8 +211,7 @@ export default function ShoppingList() {
       key={product.id}
       style={{
         color: product.isFruit ? 'magenta' : 'darkgreen'
-      }}
-    >
+      }}>
       {product.title}
     </li>
   );
@@ -283,55 +222,32 @@ export default function ShoppingList() {
 }
 ```
 
-
 ## Filtering arrays of items 
 
 This data can be structured even more.
 
-```js
-
+```jsx
 const people = [{  
-
-id: 0,  
-
-name: 'Creola Katherine Johnson',  
-
-profession: 'mathematician',  
-
+	id: 0,  
+	name: 'Creola Katherine Johnson',  
+	profession: 'mathematician'  
 }, {  
-
-id: 1,  
-
-name: 'Mario José Molina-Pasquel Henríquez',  
-
-profession: 'chemist',  
-
+	id: 1,  
+	name: 'Mario José Molina-Pasquel Henríquez',  
+	profession: 'chemist',  
 }, {  
-
-id: 2,  
-
-name: 'Mohammad Abdus Salam',  
-
-profession: 'physicist',  
-
+	id: 2,  
+	name: 'Mohammad Abdus Salam',  
+	profession: 'physicist',  
 }, {  
-
-id: 3,  
-
-name: 'Percy Lavon Julian',  
-
-profession: 'chemist',  
-
+	id: 3,  
+	name: 'Percy Lavon Julian',  
+	profession: 'chemist',  
 }, {  
-
-id: 4,  
-
-name: 'Subrahmanyan Chandrasekhar',  
-
-profession: 'astrophysicist',  
-
+	id: 4,  
+	name: 'Subrahmanyan Chandrasekhar',  
+	profession: 'astrophysicist',  
 }];
-
 ```
 
 Let’s say you want a way to only show people whose profession is `'chemist'`. You can use JavaScript’s `filter()` method to return just those people. This method takes an array of items, passes them through a “test” (a function that returns `true` or `false`), and returns a new array of only those items that passed the test (returned `true`).
@@ -341,22 +257,15 @@ You only want the items where `profession` is `'chemist'`. The “test” functi
 1. **Create** a new array of just “chemist” people, `chemists`, by calling `filter()` on the `people` filtering by `person.profession === 'chemist'`:
 
 ```js
-const chemists = people.filter(person =>  
-
-person.profession === 'chemist'  
-
-);
+const chemists = people.filter(person => person.profession === 'chemist');
 ```
 
 ```jsx
-
 import { people } from './data.js';
 import { getImageUrl } from './utils.js';
 
 export default function List() {
-  const chemists = people.filter(person =>
-    person.profession === 'chemist'
-  );
+  const chemists = people.filter(person => person.profession === 'chemist');
   const listItems = chemists.map(person =>
     <li>
       <img
@@ -372,33 +281,27 @@ export default function List() {
   );
   return <ul>{listItems}</ul>;
 }
-
 ```
 
 ### Arrow Functions
 
 Arrow functions implicitly return the expression right after `=>`, so you didn’t need a `return` statement:
 
-```js
+```jsx
 const listItems = chemists.map(person =>  
-
-<li>...</li> // Implicit return!  
-
+	<li>...</li> // Implicit return!  
 );
 ```
 
 However, **you must write `return` explicitly if your `=>` is followed by a `{` curly brace!**
 
-```js
+```jsx
 const listItems = chemists.map(person => { // Curly brace  
-
-return <li>...</li>;  
-
+	return <li>...</li>;  
 });
 ```
 
 Arrow functions containing `=> {` are said to have a [“block body”.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body) They let you write more than a single line of code, but you _have to_ write a `return` statement yourself. If you forget it, nothing gets returned!
-
 
 ### Displaying several DOM nodes for each list item.
 
@@ -407,22 +310,13 @@ What do you do when each item needs to render not one, but several DOM nodes?
 The short [`<>...</>` Fragment](https://react.dev/reference/react/Fragment) syntax won’t let you pass a key, so you need to either group them into a single `<div>`, or use the slightly longer and [more explicit `<Fragment>` syntax:](https://react.dev/reference/react/Fragment#rendering-a-list-of-fragments)
 
 ```jsx
-
 import { Fragment } from 'react';  
 
-// ...  
- 
-
 const listItems = people.map(person =>  
-
-<Fragment key={person.id}>  
-
-<h1>{person.name}</h1>  
-
-<p>{person.bio}</p>  
-
-</Fragment>  
-
+	<Fragment key={person.id}>  
+		<h1>{person.name}</h1>  
+		<p>{person.bio}</p>  
+	</Fragment>  
 );
 ```
 
@@ -436,7 +330,7 @@ Warning: Each child in a list should have a unique “key” prop.
 
 You need to give each array item a `key` — a string or a number that uniquely identifies it among other items in that array:
 
-```js
+```jsx
 <li key={person.id}>...</li>
 ```
 
@@ -445,8 +339,6 @@ JSX elements directly inside a `map()` call always need keys!
 Keys tell React which array item each component corresponds to, so that it can match them up later. This becomes important if your array items can move (e.g. due to sorting), get inserted, or get deleted. A well-chosen `key` helps React infer what exactly has happened, and make the correct updates to the DOM tree.
 
 Rather than generating keys on the fly, you should include them in your data:
-
-
 ### Where to get your `key`.
 
 Different sources of data provide different sources of keys:
@@ -472,7 +364,6 @@ You might be tempted to use an item’s *index* in the array as its key. In fact
 Similarly, do not generate keys on the fly, e.g. with `key={Math.random()}`. This will cause keys to never match up between renders, leading to all your components and DOM being recreated every time. Not only is this slow, but it will also lose any user input inside the list items. Instead, use a stable ID based on the data.
 
 Note that your components won’t receive `key` as a prop. It’s only used as a hint by React itself. If your component needs an ID, you have to pass it as a separate prop: `<Profile key={id} userId={id} />`.
-
 ## Responding to events
 
 You can respond to events by declaring _event handler_ functions inside your components:
@@ -481,22 +372,14 @@ You can respond to events by declaring _event handler_ functions inside your com
 function MyButton() {  
 
 function handleClick() {  
-
-alert('You clicked me!');  
-
+	alert('You clicked me!');  
 }  
 
-
 return (  
-
-<button onClick={handleClick}>  
-
-Click me  
-
-</button>  
-
+	<button onClick={handleClick}>  
+		Click me  
+	</button>  
 );  
-
 }
 ```
 
@@ -516,8 +399,7 @@ Now you can declare a _state variable_ inside your component:
 
 ```js
 function MyButton() {  
-
-const [count, setCount] = useState(0);  
+	const [count, setCount] = useState(0);  
 
 // ...
 ```
@@ -527,29 +409,17 @@ You’ll get two things from `useState`: the current state (`count`), and the fu
 The first time the button is displayed, `count` will be `0` because you passed `0` to `useState()`. When you want to change state, call `setCount()` and pass the new value to it. Clicking this button will increment the counter:
 
 ```jsx
-
 function MyButton() {  
+	const [count, setCount] = useState(0);  
+	function handleClick() {  
+		setCount(count + 1);  
+	}  
 
-const [count, setCount] = useState(0);  
-  
-
-function handleClick() {  
-
-setCount(count + 1);  
-
-}  
-
-  
 return (  
-
-<button onClick={handleClick}>  
-
-Clicked {count} times  
-
-</button>  
-
+	<button onClick={handleClick}>  
+		Clicked {count} times  
+	</button>  
 );  
-
 }
 ```
 
@@ -558,7 +428,6 @@ React will call your component function again. This time, `count` will be `1`. T
 If you render the same component multiple times, each will get its own state. Click each button separately:
 
 ```jsx
-
 import { useState } from 'react';
 
 export default function MyApp() {
@@ -584,7 +453,6 @@ function MyButton() {
     </button>
   );
 }
-
 ```
 
 Notice how each button “remembers” its own `count` state and doesn’t affect other buttons.
@@ -607,7 +475,7 @@ Initially, each `MyButton`’s `count` state is `0`
 
 The first `MyButton` updates its `count` to `1`
 
-However, often you’ll need components to _share data and always update together_.
+However, often you’ll need components to _share data and always update together.
 
 To make both `MyButton` components display the same `count` and update together, you need to move the state from the individual buttons “upwards” to the closest component containing all of them.
 
@@ -634,7 +502,6 @@ The information you pass down like this is called _props_. Now the `MyApp` compo
 Finally, change `MyButton` to _read_ the props you have passed from its parent component:
 
 ```jsx
-
 import { useState } from 'react';
 
 export default function MyApp() {

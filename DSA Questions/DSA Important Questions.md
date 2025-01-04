@@ -3111,6 +3111,90 @@ return rle;
 
 }
 ```
+
+40. [Sum of Two Integers](https://leetcode.com/problems/sum-of-two-integers/)
+
+Video Link - https://www.youtube.com/watch?v=gVUrDV4tZfY
+
+![[20250102190023.png]]
+
+```java
+class Solution {
+	public int getSum(int a, int b) {
+		if(a == 0) return b;
+		if(b == 0) return a;
+		
+		while(b != 0) {
+			int carry = a & b;
+			a = a ^ b;
+			b = carry << 1;
+		}
+		return a;
+	}
+}
+```
+
+```js
+var getSum = function(a, b) {
+	if(a === 0) return b;
+	if(b === 0) return a;
+
+	while(b !== 0) {
+		let carry = a & b;
+		a = a ^ b;
+		b = carry << 1;
+	}
+	return a;
+};
+```
+
+41. [Search a 2D Matrix II](https://leetcode.com/problems/search-a-2d-matrix-ii/)
+
+```java
+class Solution {
+    public boolean searchMatrix(int[][] matrix, int target) {
+        if(matrix == null || matrix.length < 1 || matrix[0].length < 1) {
+            return false;
+        }
+        int col = matrix[0].length - 1;
+        int row = 0;
+        while(col >= 0 &&  row <= matrix.length - 1) {
+            if(target == matrix[row][col]) {
+                return true;
+            } else if(target < matrix[row][col]) {
+                col--;
+            } else if(target > matrix[row][col]) {
+                row++;
+            }
+        }
+        return false;
+    }
+}
+```
+
+```js
+var searchMatrix = function(matrix, target) {
+	if(matrix === null || matrix.length < 1 || matrix[0].length < 1) {
+		return false;
+	}
+
+	let col = matrix[0].length - 1;
+	let row = 0;
+	while(col >= 0 && row <= matrix.length - 1) {
+		if(target == matrix[row][col]) {
+			return true;
+		} else if(target < matrix[row][col]) {
+			col--;
+		} else if(target > matrix[row][col]) {
+			row++;
+		}
+	}
+	return false;
+};
+```
+
+Time Complexity = O(m + n)
+
 ### References
 
 https://serhatgiydiren.com/step-by-step-tech-interview-preparation-guide/

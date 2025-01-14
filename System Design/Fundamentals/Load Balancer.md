@@ -45,7 +45,7 @@ Load balancing is notably distinct from **rate limiting**, which is when traffi
 
 ## Top 6 Load Balancing Algorithms
 
-![Load Balancing Algorithms](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124110329.png)
+![Load Balancing Algorithms](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241124110329.png)
 
 ### There are two main categories of Load Balancing Algorithms.
 

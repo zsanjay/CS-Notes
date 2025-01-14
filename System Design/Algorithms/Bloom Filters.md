@@ -1,10 +1,10 @@
-![Bloom Filters](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124152729.png)
+![Bloom Filters](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241124152729.png)
 
 A **Bloom filter** is a probabilistic data structure used to test whether an element is a member of a set. It is highly space-efficient but allows for a small probability of **false positives**, meaning it might incorrectly report that an element is in the set when it is not. However, it guarantees **no false negatives**, meaning if it says an element is not in the set, it definitely is not.
 
 Bloom filters are widely used in situations where you need to quickly check membership in a large set and can tolerate occasional false positives in exchange for significant space savings.
 
-![Bloom Filters 1](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241124152832.png)
+![Bloom Filters 1](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241124152832.png)
 
 ### **How Bloom Filters Work**
 

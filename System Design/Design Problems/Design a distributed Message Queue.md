@@ -29,7 +29,7 @@
 
 ### High Level Architecture
 
-![High Level Architecture](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241126205708.png)
+![High Level Architecture](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241126205708.png)
 
 - VIP : Virtual IP : Refers to the symbolic hostname (myWebService.domain.com) that resolves to a load balancer system.
 - Load Balancer : A device that routes client requests across a number of servers.
@@ -40,7 +40,7 @@
 
 ### VIP and Load Balancer
 
-![VIP and Load Balancer](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241126205812.png)
+![VIP and Load Balancer](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241126205812.png)
 
 - When domain name is hit, request is transferred to one of the VIPs registered in DNS for our domain name.
 - VIP is resolved to a load balancer device, which has a knowledge of FrontEnd hosts.
@@ -68,7 +68,7 @@
 
 ### Metadata Service
 
-![Metadata Service](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241126205851.png)
+![Metadata Service](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241126205851.png)
 
 - Metadata service stores information about queues.
 - Every time queue is created, we store information about it in the database. Conceptually, Metadata service is a caching layer between the FrontEnd and a persistent storage.
@@ -95,7 +95,7 @@
 
 ### Option A : Leader – Follower Relationship
 
-![Leader – Follower Relationship](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241126205944.png)
+![Leader – Follower Relationship](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241126205944.png)
 
 - Each backend instance is considered a leader for a particular set of queues.
 - And by leader we mean that all requests for a particular queue (like send message and receive message requests) go to this leader instance.

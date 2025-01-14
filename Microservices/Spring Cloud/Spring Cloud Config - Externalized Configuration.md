@@ -3,7 +3,7 @@
 
 How to enable a service to run in multiple environments without modification?
 
-## Forces [§](https://microservices.io/patterns/externalized-configuration.html#forces)
+## [Forces](https://microservices.io/patterns/externalized-configuration.html#forces)
 
 - A service must be provided with configuration data that tells it how to connect to the external/3rd party services. For example, the database network location and credentials
 - A service must run in multiple environments - dev, test, qa, staging, production - without modification and/or recompilation

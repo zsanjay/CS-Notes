@@ -26,7 +26,7 @@ High Performant (fast put / get) - low latency
 
 ### LRU cache algorithm explanation
 
-![LRU cache algorithm](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241126103742.png)
+![LRU cache algorithm](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241126103742.png)
 
 ### LRU cache algorithm implementation
 
@@ -138,7 +138,7 @@ public class LRUCache {
 
 ### Stepping into the distributed world
 
-![distributed cache](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241126114950.png)
+![distributed cache](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241126114950.png)
 
 
 ### Dedicated Cache Cluster
@@ -157,7 +157,7 @@ public class LRUCache {
 
 ### Cache Client
 
-![Cache Client](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241126120057.png)
+![Cache Client](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241126120057.png)
 
 - Consistent hashing is much better than MOD hashing, as significantly smaller fraction of keys is re-hashed when new host is added or host is removed from the cache cluster. Now we know how cache cluster host is selected for both put and get, but who is actually doing this selection? On the service side, who is responsible for running all these hash calculations and routing requests to the selected cache host?
 
@@ -170,7 +170,7 @@ public class LRUCache {
 
 ### Maintaining a list of cache servers
 
-![List of cache servers](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241126120638.png)
+![List of cache servers](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241126120638.png)
 
 
 - As you may see, list of cache hosts is the most important knowledge for clients. And what we need to understand, is how this list is created, maintained and shared among all the clients. Let’s discuss several options.
@@ -179,7 +179,7 @@ public class LRUCache {
 - It would be great if we could somehow monitor cache server health and if something bad happens to the cache server, all service hosts are notified and stop sending any requests to the unavailable cache server. And if a new cache server is added, all service hosts are also notified and start sending requests to it. To implement this approach, we will need a new service, configuration service, whose purpose is to discover cache hosts and monitor their health. Each cache server registers itself with the configuration service and sends heartbeats to the configuration service periodically. As long as heartbeats come, server is keep registered in the system. If heartbeats stop coming, the configuration service unregisters a cache server that is no longer alive or inaccessible. And every cache client grabs the list of registered cache servers from the configuration service.
 - The third option is the hardest from implementation standpoint and its operational cost is higher. But it helps to fully automate the list maintenance. And in a couple of minutes you will see one other benefit of using configuration service for a distributed cache.
 
-![List of cache servers 1](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241126121353.png)
+![List of cache servers 1](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241126121353.png)
 
 - To store more data in memory we partition data into shards. And put each shard on its own server. Every cache client knows about all cache shards. And cache clients use consistent hashing algorithm to pick a shard for storing and retrieving a particular cache key.
 
@@ -236,7 +236,7 @@ public class LRUCache {
 
 - Consistent hashing algorithm is great. Simple and effective. But it has two major flaws: so called domino effect and the fact that cache servers do not split the circle evenly. Let’s clarify this. Domino effect may appear when cache server dies. And all of its load is transferred to the next server. This transfer might overload the next server, and then that server would fail, causing a chain reaction of failures. And to understand the second problem, remember how we placed cache servers on the circle. Some servers may reside close to each other and some may be far apart. Causing uneven distribution of keys among the cache servers. To deal with these problems, several modifications of the consistent hashing algorithm have been introduced. One simple idea is to add each server on the circle multiple times. You can also read about Jump Hash algorithm (a paper published by Google in 2014) or proportional hashing (algorithm used by Yahoo! Video Platform).
 
-![Flaws in Consistent Hashing Algorithm](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241126132151.png)
+![Flaws in Consistent Hashing Algorithm](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241126132151.png)
 
 ### Summary
 

@@ -75,7 +75,7 @@ Project members include a variety of security experts from around the world who 
   The abstraction of application actions into a set of permissions. A permission may be represented simply as a string-based name --- for example, "READ"
 
 
-![OWASP](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241217121739.png)
+![OWASP](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241217121739.png)
   
 
 ## 1. Broken Access Control (A01:2021).
@@ -86,7 +86,7 @@ Previously number 5 on the list, broken access control—a weakness that allows
 
 **Solution:** An [interactive application security testing](https://www.blackduck.com/interactive-application-security-testing.html) (IAST) solution, such as Seeker®, can help you effortlessly detect cross-site request forgery or insecure storage of your sensitive data. It also pinpoints any bad or missing logic being used to handle JSON Web Tokens. [Penetration testing](https://www.blackduck.com/services/penetration-testing.html) can serve as a manual supplement to IAST activities, helping to detect unintended access controls. Changes in architecture and design may be warranted to create trust boundaries for data access.
 
-![BAC](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241217122029.png)
+![BAC](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241217122029.png)
 
 
 ## 2. Cryptographic Failures (A02:2021).

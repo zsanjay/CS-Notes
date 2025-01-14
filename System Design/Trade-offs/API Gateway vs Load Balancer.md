@@ -4,27 +4,27 @@ References :
 
 https://www.youtube.com/watch?v=UX11tVIkYUg&list=PL5Lsd0YA4OMFvX88T5xH93NqBALI7TENz&index=5
 
-![API Gateway vs Load Balancer](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241123185513.png)
+![API Gateway vs Load Balancer](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241123185513.png)
 
 ## Reverse Proxy
 
-![Reverse Proxy](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241123191252.png)
+![Reverse Proxy](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241123191252.png)
 
 ## API Gateway
 
-![API Gateway](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241123191601.png)
+![API Gateway](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241123191601.png)
 
 ## Ingress Controller (Kubernetes)
 
-![Ingress Controller](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241123191833.png)
+![Ingress Controller](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241123191833.png)
 
 ## Kubernetes Cluster
 
-![Kubernetes Cluster](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241123192458.png)
+![Kubernetes Cluster](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241123192458.png)
 
 ## MultiCluster Configuration Under High Load.
 
-![Kubernetes MultiCluster](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241123192731.png)
+![Kubernetes MultiCluster](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241123192731.png)
 
 # API Gateway vs Load Balancer: Which is Right for Your Application?
 

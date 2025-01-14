@@ -7,7 +7,7 @@ You have applied the [Microservice architecture pattern](https://microservices.
 
 How are services packaged and deployed?
 
-## Forces [§](https://microservices.io/patterns/deployment/single-service-per-host.html#forces)
+## [Forces](https://microservices.io/patterns/deployment/single-service-per-host.html#forces)
 
 - Services are written using a variety of languages, frameworks, and framework versions
 - Each service consists of multiple service instances for throughput and availability

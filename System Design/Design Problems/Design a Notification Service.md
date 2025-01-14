@@ -23,7 +23,7 @@
 
 ## High Level Architecture
 
-![High Level Architecture](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241126205120.png)
+![High Level Architecture](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241126205120.png)
 
 - All requests coming from our clients will go through a load balancer first.
 - This will ensure requests are equally distributed among requests processing servers.
@@ -43,7 +43,7 @@
 
 ### FrontEnd Service
 
-![FrontEnd Service](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241126205353.png)
+![FrontEnd Service](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241126205353.png)
 
 - When request lands on the host, the first component that picks it up is a Reverse Proxy.
 - Reverse proxy : Lightweight server responsible for several things:
@@ -74,7 +74,7 @@
 - Based on the hash value, FrontEnd host picks a corresponding Metadata service host.
 - Let’s discuss in more details two different approaches how FrontEnd hosts know which Metadata service host to call.
 
-![Metadata Service](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241126205503.png)
+![Metadata Service](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241126205503.png)
 
 - In the first option we introduce a component responsible for coordination. This component knows about all the Metadata service hosts, as those hosts constantly send heartbeats to it. Each FrontEnd host asks Configuration service what Metadata service host contains data for a specified hash value. Every time we scale out and add more Metadata service hosts, Configuration service becomes aware of the changes and re-maps hash key ranges.
 - In the second option we do not use any coordinator. Instead, we make sure that every FrontEnd host can obtain information about all Metadata service hosts. And every FrontEnd host is notified when more Metadata service hosts are added or if any Metadata host died due to a hardware failure. There are different mechanisms that can help FrontEnd hosts discover Metadata service hosts. We will not dive into this topic here, only mention the Gossip protocol. This protocol is based on the way that epidemics spread. Computer systems typically implement this type of protocol with a form of random “peer selection”: with a given frequency, each machine picks another machine at random and shares data.
@@ -95,7 +95,7 @@
 
 ### Sender
 
-![Sender](https://github.com/zsanjay/Obsidian-Notes/blob/main/Pasted%20image%2020241126205602.png)
+![Sender](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241126205602.png)
 
 - After message is successfully published and stored in the Temporary Storage, we now can start sending this message to subscribers.
 - You will see that ideas on which Sender service is built upon, can easily be applied to other distributed systems and not just the Notification service.

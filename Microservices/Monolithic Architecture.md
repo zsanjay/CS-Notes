@@ -33,7 +33,7 @@ There are five [dark matter forces](https://microservices.io/post/microservices
 
 Design an architecture that structures the application as a single deployable/executable component that uses a single database. The component contains all of the application’s subdomains. Since there’s a single component, all operations are local.
 
-![Monolithic](https://github.com/zsanjay/Obsidian-Notes/blob/main/20241123120457.png)
+![Monolithic](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241123120457.png)
 
 
 ## Example

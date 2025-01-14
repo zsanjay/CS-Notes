@@ -1,59 +1,29 @@
 
+A higher order function is a function that does at least one of the following:
+
+1. Takes one or more functions as a parameter.
+2. Returns a function as the result.
+
 ```js
 // Higher Order Functions
-
-  
-
-// A higher order function is a function that does at least one of the following:
-
-// 1. Takes one or more functions as a parameter.
-
-// 2. Returns a function as the result.
-
-  
-  
-
 import { posts } from "../data/post.js";
 
-  
-
-posts.forEach((post) => {
-
-console.log(post);
-
-});
-
-  
-
+posts.forEach((post) => { console.log(post); });
 console.clear();
 
-  
 
 const filteredPosts = posts.filter((post) => post.userId === 5);
-
 console.log(filteredPosts);
 
-  
 
-const mappedPosts = filteredPosts.map(post => {
-
-return post.id * 10;
-
-});
-
+const mappedPosts = filteredPosts.map(post =>  post.id * 10);
 console.clear();
-
 console.log(mappedPosts);
 
-  
 
 const reducedPostsValue = mappedPosts.reduce((sum, post) => {
-
-return sum + post;
-
+	return sum + post;
 });
-
-  
 
 console.log(reducedPostsValue);
 ```
@@ -83,7 +53,7 @@ In the above code `higherOrderFunction()` is an HOF because we are passing a c
 
 The above example is quite simple isn't it? So let's expand it further and see how you can use HOFs to write more concise and modular code.
 
-### How Higher Order Functions Work
+### How Higher Order Functions Work?
 
 So, suppose I want you to write a function that calculates the area and diameter of a circle. As a beginner, the first solution that comes to our mind is to write each separate function to calculate area or diameter.
 
@@ -182,11 +152,10 @@ When working with objects, you can use the `Object.entries()` function to crea
 
 When working with functions, you can use the `compose()` function to create complex functions from simpler ones. 
 
-## How to Use Some Important Higher Order Functions
+## How to Use Some Important Higher Order Functions?
 
 There are various built in HOFs, and some of the most common ones are map(), filter() and reduce(). So let's understand each one of these in detail.
-
-### **How to use `map()` in JavaScript**
+### **How to use `map()` in JavaScript**?
 
 The `map()` function takes an array of values and applies a transformation to each value in the array. It does not mutate the original array. It is often used to transform an array of data into a new array with a different structure.
 
@@ -236,7 +205,8 @@ The `filter()` function takes an array and returns a new array with only the v
 
 ```js
 const arr = [1, 2, 3, 4, 5];
-const output = arr.filter((num) => num % 2) // filter out odd numbers
+const oddNums = arr.filter((num) => num % 2) // filter out odd numbers
+const evenNums = arr.filter((num) => !(num % 2)) // filter out odd numbers
 console.log(arr); // [1, 2, 3, 4, 5]
 console.log(output); // [1, 3, 5]
 ```
@@ -336,9 +306,11 @@ It will continue this process until it has processed all the elements in the arr
 const obj1 = { a: 1, b: 2 };
 const obj2 = { c: 3, d: 4 };
 const obj3 = { e: 5, f: 6 };
+
 const mergedObj = [obj1, obj2, obj3].reduce((acc, curr) => {
     return { ...acc, ...curr };
 }, {});
+
 console.log(mergedObj); // { a: 1, b: 2, c: 3, d: 4, e: 5, f: 6 }
 ```
 
@@ -369,7 +341,6 @@ const products = shoppingCart.reduce((productGroup, product) => {
         productGroup[name] = [];
     }
     productGroup[name].push(product);
-
     return productGroup;
 }, {});
 
@@ -410,7 +381,6 @@ Using higher order functions has some important benefits for web developers. 
 First, higher order functions can help improve the legibility of your code by making it more concise and easy to understand. This can help speed up the development process and make it easier to debug code. 
 
 Second, higher order functions can help organize your code into smaller chunks, making it easier to maintain and extend.
-
 ### References
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach

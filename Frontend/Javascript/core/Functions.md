@@ -50,6 +50,7 @@ course.start();
 ```
 
 In a function, (meaning not a method defined for an object), the this keyword will reference the global object.
+
 In browsers it's the window object and in Node.js it's the global object.
 
 ```js
@@ -95,7 +96,7 @@ function startVideo() {
 Arrow functions don't have their own 'this' context. Instead they inherit this from their parent scope at the time they are defined.
 
 This is because when using arrow functions, the 'this' keyword inherits from its parents scope.
-So in this case, it would be the global object (in Node.js)
+So in this case, it would be the global object (in Node.js).
 
 Since the global object doesn't have a name property, then this value will be undefined.
 
@@ -311,7 +312,6 @@ let course = {
 };
 
 console.log(`${course.name} is ${course.duration}`);
-
 console.log( course.details() );
 ```
 
@@ -361,7 +361,7 @@ let course = {
     set details(value) {
         if (typeof value !== 'string') {
             // Here we are throwing an exception.
-            throw new Error(`Vallue, ${value} is not a string`);
+            throw new Error(`Value, ${value} is not a string`);
         }
 
         let parts = value.split(' is ');
@@ -425,45 +425,33 @@ Creating Custom Error
 ```js
 const makeError = () => {
 
-let i = 1;
-
-while(i <= 5) {
-
-try {
-	if( i % 2 !== 0) {
-		throw new customError("Odd number!"); // Custom Error
-		//throw new Error("Odd number!");
+	let i = 1;
+	while(i <= 5) {
+	try {
+		if( i % 2 !== 0) {
+			throw new customError("Odd number!"); // Custom Error
+			//throw new Error("Odd number!");
+		}
+		console.log("Even number!");
+	
+	} catch(err) {
+		console.error(err.stack); // customError: Odd number!
+	} finally {
+		console.log("finally called");
+		i++;
 	}
-	console.log("Even number!");
-
-} catch(err) {
-
-console.error(err.stack); // customError: Odd number!
-
-} finally {
-
-console.log("finally called");
-
-i++;
-
-}
-
-}
-
+	}
 }
 
 makeError();
 
 function customError(message) {
-
-this.message = message;
-
-this.name = "customError";
-
-this.stack = `${this.name}: ${this.message}`;
-
+	this.message = message;
+	this.name = "customError";
+	this.stack = `${this.name}: ${this.message}`;
 }
 ```
+
 #### Local vs Global Scope
 
 Refer to MDN docs:
@@ -475,6 +463,7 @@ https://developer.mozilla.org/en-US/docs/Glossary/Global_scope
 Global scope, so a variable declared outside any function block or conditional has a global scope.  Meaning that it is accessible from any part of the code after its declaration.
 
 This variable is declared in the global scope.
+
 ```js
 const name = 'Steven';
 console.log(name);

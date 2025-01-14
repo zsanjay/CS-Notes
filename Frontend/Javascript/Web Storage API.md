@@ -9,74 +9,41 @@ The two mechanisms within Web Storage are as follows:
     
 - `localStorage` does the same thing, but persists even when the browser is closed and reopened.
 
+#### Web Storage API
+
+- Not part of the DOM - refers to the Window API
+- Available to JS via the global variable: window
+- We do not have to type window. It is implied.
+	window.alert(window.location);
+	alert(location);
+
+####  sessionStorage
+
 ```js
-
-// Web Storage API
-
-  
-
-// Not part of the DOM - refers to the Window API
-
-// Available to JS via the global variable: window
-
-// We do not have to type window. It is implied.
-
-  
-
-// window.alert(window.location);
-
-// alert(location);
-
-  
-
-// sessionStorage
-
-  
-
 const myObject = {
-
-name : "Sanjay",
-
-logName : function() {
-
-console.log(this.name);
-
+	name : "Sanjay",
+	logName : function() {
+		console.log(this.name);
+	}
 }
-
-}
-
-  
 
 const myArray = ["eat", "sleep", "code"];
+sessionStorage.setItem("mySessionStore" , JSON.stringify(myArray));
+let value = JSON.parse(sessionStorage.getItem("mySessionStore"));
+console.log(value); // [ "eat", "sleep", "code" ]
+```
 
-  
+#### localStorage
 
-// sessionStorage.setItem("mySessionStore" , JSON.stringify(myArray));
-
-  
-
-// let value = JSON.parse(sessionStorage.getItem("mySessionStore"));
-
-// console.log(value);
-
-  
-
-// localStorage
-
-  
+```js
 
 localStorage.setItem("mylocalStore" , JSON.stringify(myArray));
-
-//localStorage.removeItem("mylocalStore");
-
-//localStorage.clear();
+localStorage.removeItem("mylocalStore");
+localStorage.clear();
 
 const key = localStorage.key(0);
-
 value = JSON.parse(localStorage.getItem(key));
-
 console.log(key);
-
 console.log(localStorage.length);
 ```
 

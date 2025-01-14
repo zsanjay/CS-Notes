@@ -9,220 +9,129 @@ Refer to docs - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
 
 ```js
 // Arrays
-
 const myArray = [];
 
 
 // add elements to an array
-
 myArray[0] = "Sanjay";
-
 myArray[1] = 1001;
-
 myArray[2] = false;
 
-  
 
 // refer to an array
-
 console.log(myArray);
 
-  
-
 // Length property
-
 console.log(myArray.length);
 
-  
 
 // Last element in an array
-
 console.log(myArray[myArray.length - 1]);
 
-  
 
 // add an element to the end
-
 myArray.push("school");
 
-  
 
 // remove an element from the end of the array
-
 console.log(myArray.pop());
 
   
-
 // unshift - add an element in the front of the array
-
 const newLength = myArray.unshift(42);
 
-  
-
 console.log(myArray);
-
 console.log(newLength);
 
   
-
 // shift - remove the element from the front of the array
-
-  
-
 const removedElement = myArray.shift();
 
   
-
 console.log(myArray);
-
 console.log(removedElement);
 
-  
 
 // delete - don't use this because it doesn't shift the index and make position value undefined
 
-  
-
 //delete myArray[1];
-
-  
-
 console.log(myArray);
-
 console.log(myArray[1]);
 
   
-
 // For removing and delete the element from the array use splice method.
-
-  
-
 // Delete an element at index 1
-
 myArray.splice(1, 1);
-
 console.log(myArray);
 
   
-
 // Replace the value of an element at index 1
-
 myArray.splice(1, 1, true);
-
 console.log(myArray);
 
   
-
 // Insert the value of an element at index 1
-
 myArray.splice(1, 0, 54);
-
 console.log(myArray);
 
   
-
 myArray.splice(3, 0, 987);
-
 console.log(myArray);
 
   
 
 // slice method
-
-  
-
 const myArray2 = ["A", "B", "C", "D", "E", "F"];
 
-  
-
 const newArray = myArray2.slice(2,5);
-
 console.log(newArray);
 
-  
 
 // reverse method
-
 myArray2.reverse();
-
 console.log(myArray2);
 
-  
 
 // join method
-
 const newString = myArray2.join();
-
 console.log(newString);
 
-  
 
 // split method
-
 const splittedArray = newString.split(",");
-
 console.log(splittedArray);
 
-  
 
 // concat
-
 const myArrayA = ["A", "B" , "C"];
-
 const myArrayB = ["D", "E" , "F"];
 
-  
 
 const concatArray = myArrayA.concat(myArrayB);
-
 console.log(concatArray);
 
-  
 
 // spread operator
-
-  
-
 let spreadArray = [...myArrayA,...myArrayB];
-
 console.log(spreadArray);
 
   
 
 // Multidimensional Array 2D
-
-  
-
 const equipShelfA = ["baseball", "football", "volleyball"];
-
 const equipShelfB = ["basketball", "golf balls", "tennis balls"];
-
-  
-
 const clothesShelfA = ["tank tops", "t-shirts", "jerseys"];
-
 const clothesShelfB = ["sweat tops", "sweat pants", "hoodies"];
-
-  
-
 const equipDept = [equipShelfA, equipShelfB];
-
 const clothesDept = [clothesShelfA, clothesShelfB];
 
-  
-
 console.log(equipDept[0][1]);
-
 console.log(clothesDept[1][0]);
 
-  
 
 // 3D array
-
 const sportsStore = [equipDept, clothesDept];
-
 console.log(sportsStore[0][0][1]);
-
 console.log(sportsStore[1][1][0]);
 ```
 
@@ -254,7 +163,6 @@ The argument for the .forEach() method also accepts an optional second parameter
 which is the index of the corresponding element.
 
 ```js
-
 numbers.forEach((number, index) => console.log(`At index, ${index}: ${number}`));
 ```
 
@@ -498,6 +406,7 @@ Using the const keyword, we can't reassign this variable to any other value, but
 ```js
 const numbers = [5, 4, 3, 2, 1];
 ```
+
 There are 3 ways to add an element to an array.
 
 1. Add to the beginning with .unshift()
@@ -689,7 +598,6 @@ console.log(`middleElement: ${middleElement}`); // middleElement: 3
 If you want to clear all the elements of an array, there are different ways that you can do that.
 
 ```js
-
 let numbers = [1, 2, 3, 4, 5];
 
 // If the numbers array was large, then this would be inefficient.

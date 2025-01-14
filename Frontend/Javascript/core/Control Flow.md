@@ -246,10 +246,7 @@ for (const number of numbers) {
 In loops, there may be specific conditions where you will want to terminate the loop.
 This is where you would use the break statement.
 
-
-
 ```js
-
 //break statement in the for loop
 for (let i = 0; i < 10; i++) {
     if (i === 5)
@@ -260,7 +257,7 @@ for (let i = 0; i < 10; i++) {
 
 // break statement in the while loop
 let i = 0;
-while (i < 10) {
+while (i < 10) { 
     if (i === 5)
         break;
 

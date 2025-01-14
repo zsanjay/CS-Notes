@@ -61,65 +61,27 @@ const result = sum2(3);
 console.log(result); // 6
 ```
 
+Currying takes a function that receives more than one parameter and breaks it into a series of unary (one parameter) functions.
 
 ```js
-// Currying
-
-  
-
-// Currying takes a function that receives more than one parameter
-
-// and breaks it into a series of unary (one parameter) functions
-
-  
-
-/*
-
-What Is Currying in JavaScript?
-
-Currying in JavaScript transforms a function with multiple arguments
-
-into a nested series of functions, each taking a single argument.
-
-Currying helps you avoid passing the same variable multiple times, and
-
-it helps you create a higher order function.
-
-*/
-
-  
-
 // Currying can look like this:
-
-  
-
 const buildSandwich = (ingredient1) => {
-
-return (ingredient2) => {
-
-return (ingredient3) => {
-
-return `${ingredient1}, ${ingredient2}, ${ingredient3}`;
-
+	return (ingredient2) => {
+		return (ingredient3) => {
+			return `${ingredient1}, ${ingredient2}, ${ingredient3}`;
+		}
+	}
 }
 
-}
-
-}
-
-  
 
 const mySandwich = buildSandwich("Becon")("Lettuce")("Tomato")
 
 console.log(mySandwich);
 
-  
 
 // It works but thats getting ugly and nested the further we go
 
 // Let's refector:
-
-  
 
 const buildSammy = ingred1 => ingred2 => ingred3 =>
 
@@ -134,36 +96,22 @@ console.log(mySammy);
   
 
 // Another Example of a curried function
-
 const multiply = (x, y) => x * y;
-
-  
-
 const curriedMultiply = x => y => x * y;
 
-  
-
 console.log(multiply(2 , 3));
-
 console.log(curriedMultiply(2));
-
 console.log(curriedMultiply(2)(3));
 
   
-  
-
 // Partially applied functions are a common use of currying
-
 const timesTen = curriedMultiply(10);
 
 console.log(timesTen);
-
 console.log(timesTen(8));
 
   
-
 // Another example
-
 const updateElemText = id => content => document.querySelector(`#${id}`).textContent = content;
 
 const updateHeaderText = updateElemText('header');
@@ -178,35 +126,20 @@ updateHeaderText("Hello Sanjay!");
 
 // Allows calling small functions in a specific order
 
-  
-
 const addCustomer = fn => (...args) => {
-
-console.log('saving customer info...');
-
-return fn(...args);
-
+	console.log('saving customer info...');
+	return fn(...args);
 }
-
-  
 
 const processOrder = fn => (...args) => {
-
-console.log(`processing order #${args[0]}`)
-
-return fn(...args);
-
+	console.log(`processing order #${args[0]}`)
+	return fn(...args);
 }
-
-  
-
+ 
 let completeOrder = (...args) => {
-
-console.log(`Order #${[...args].toString()} completed.`);
-
+	console.log(`Order #${[...args].toString()} completed.`);
 }
 
-  
 
 completeOrder = (processOrder(completeOrder));
 
@@ -218,58 +151,32 @@ console.log(completeOrder);
 
 completeOrder("1000");
 
-  
 
 // Above function can be written using nested functions
-
-  
-
 function addCustomerNested(...args) {
-
-return function processOrderNested(...args) {
-
-return function completeOrderNested(...args) {
-
+	return function processOrderNested(...args) {
+		return function completeOrderNested(...args) {
 // end
-
+		}
+	}
 }
-
-}
-
-}
-
-  
 
 // Requires a function with a fixed number of parameters
-
 const curry = (fn) => {
-
-return curried = (...args) => {
-
-if(fn.length !== args.length) {
-
-return curried.bind(null, ...args); // bind creates new function
-
+	return curried = (...args) => {
+		if(fn.length !== args.length) {
+			return curried.bind(null, ...args); // bind creates new function
+		}
+		return fn(...args);
+	};
 }
 
-return fn(...args);
-
-};
-
-}
-
-  
 
 const sum = (x , y , z) => x + y + z;
-
-  
-
 console.log(curry(sum));
 
-  
 
 const currySum = curry(sum);
-
 console.log(currySum(10)(20)(30));
 ```
 

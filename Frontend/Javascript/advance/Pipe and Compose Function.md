@@ -11,7 +11,6 @@ Let’s write a function that returns someone’s `name`.
 
 ```js
 getName = (person) => person.name;
-
 getName({ name: 'Buckethead' });
 // 'Buckethead'
 ```
@@ -20,7 +19,6 @@ Let’s write a function that uppercases strings.
 
 ```js
 uppercase = (string) => string.toUpperCase();
-
 uppercase('Buckethead');
 // 'BUCKETHEAD'
 ```
@@ -30,7 +28,6 @@ So if we wanted to get and capitalize `person`'s name, we could do this:
 ```js
 name = getName({ name: 'Buckethead' });
 uppercase(name);
-
 // 'BUCKETHEAD'
 ```
 
@@ -44,16 +41,13 @@ Better, but I’m not fond of that nesting. It can get too crowded. What if we w
 
 ```js
 get6Characters = (string) => string.substring(0, 6);
-
 get6Characters('Buckethead');
 // 'Bucket'
 ```
 
 Resulting in:
-
 ```js
 get6Characters(uppercase(getName({ name: 'Buckethead' })));
-
 // 'BUCKET';
 ```
 
@@ -168,249 +162,133 @@ And you’re done!
 ```js
 
 // Functional Programming
-
-  
-
 // Often uses pipe and compose = higher order functions
 
-  
-
 /* A higher order function is any function which takes a function as an argument,
-
 returns a function, or both. */
-
-  
 
 // Start with small unary (one parameter) functions
 
 const add2 = (x) => x + 2;
-
 const subtract1 = (x) => x - 1;
-
 const multiplyBy5 = (x) => x * 5;
 
-  
-
 // Making our own pipe functions
-
-  
 
 /* Note: Ramda.js and lodash libraries have their own built-in compose and pipe functions.
 
 lodash calls pipe "flow". */
 
-  
-
-/* The higher order function "reduce" takes a list of values and applies a function to each of
-
-those values, accumulating a single result. */
-
-  
+/* The higher order function "reduce" takes a list of values and applies a function to each of those values, accumulating a single result. */
 
 /* To do the same as compose, but read from left to right... we use "pipe".
-
 It is the same except uses reduce instead of reduceRight. */
-
-  
 
 const pipe = (...fns) => (val) => fns.reduce((prev , fn) => fn(prev) , val);
 
-  
-
 const pipeResult = pipe(add2 , subtract1, multiplyBy5)(5);
-
 console.log(pipeResult);
 
-  
-
 // You will often see the functions on separate lines
-
 const pipeResult2 = pipe(
-
 add2,
-
 subtract1,
-
 multiplyBy5
-
 )(6);
 
 console.log(pipeResult2);
 
-  
-
 /* This is a "pointer free" style where you do not see the unary parameter
-
 passed between each function */
 
   
-
 // example with a 2nd parameter
-
 const divideBy = (divisor, num) => num / divisor;
 
-  
-
 const pipeResult3 = pipe(
-
 add2,
-
 subtract1,
-
 multiplyBy5,
-
 x => divideBy(2, x)
-
 )(5);
 
-  
-
 console.log(pipeResult3);
-
-  
-
 // or you could curry the divideBy function for a custom unary function:
 
 const divBy = (divisor) => (num) => num / divisor;
-
 const divideBy2 = divBy(2); // partially applied
 
-  
-
 const pipeResult4 = pipe(
-
 add2,
-
 subtract1,
-
 multiplyBy5,
-
 divideBy2
-
 )(5);
 
 console.log(pipeResult4);
 
-  
 
 const lorem = `Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-
 aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-
 dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`;
-
   
-
 const splitOnSpace = (string) => string.split(' ');
-
 const count = (array) => array.length;
-
   
-
 const wordCount = pipe(
-
 splitOnSpace,
-
 count
-
 );
-
-  
 
 console.log(wordCount(lorem));
 
-  
-
 // The pipe function is reusable
-
 const egbdf = "Every good boy does fine.";
-
 console.log(wordCount(egbdf));
 
-  
 
 // Combine Processes: Check for palindrome
-
 const pal1 = "taco cat";
-
 const pal2 = "UFO tofu";
-
 const pal3 = "Dave";
 
-  
-
 const split = (string) => string.split('');
-
 const join = (string) => string.join('');
-
 const lower = (string) => string.toLowerCase();
-
 const reverse = (array) => array.reverse();
 
-  
-
 const fwd = pipe(
-
 splitOnSpace,
-
 join,
-
 lower
-
 );
 
   
-
 const rev = pipe(
-
 fwd,
-
 split, // Split the string and returns array
-
 reverse, // Reverse the array
-
 join // Join characters to string
-
 );
 
-  
 
 console.log(fwd(pal1) === rev(pal1));
-
 console.log(fwd(pal2) === rev(pal2));
-
 console.log(fwd(pal3) === rev(pal3));
 
-  
-
 // Clone / Copy functions within a pipe or compose function
-
-  
-
 // 3 approaches:
 
-  
-
 // 1) Clone the object before an impure function mutates it
-
 const scoreObj = { home : 0, away : 0};
-
-  
 
 const shallowClone = (obj) => Array.isArray(obj) ? [...obj] : { ...obj };
 
-  
-
 const incrementHome = (obj) => {
-
-obj.home += 1; // mutation
-
-return obj;
-
+	obj.home += 1; // mutation
+	return obj;
 }
 
   
@@ -418,7 +296,6 @@ return obj;
 const homeScore = pipe(
 
 shallowClone,
-
 incrementHome
 
 // another function,
@@ -428,15 +305,10 @@ incrementHome
 );
 
 console.log(homeScore(scoreObj));
-
 console.log(scoreObj);
-
 console.log(homeScore(scoreObj) === scoreObj);
 
-  
-
 // Positive: Fewer function calls
-
 // Negative: Create impure functions and testing difficulties
 
   
@@ -446,72 +318,44 @@ console.log(homeScore(scoreObj) === scoreObj);
 let incrementHomeB = (cloneFn) => (obj) => {
 
 const newObj = cloneFn(obj);
-
 newObj.home += 1; // mutation
-
 return newObj;
 
 }
 
-  
-
 // Creates the partial by applying the first argument in advance
-
 incrementHomeB = incrementHomeB(shallowClone);
 
-  
-
 const homeScoreB = pipe(
-
 incrementHomeB
-
 )
 
-  
-
 console.log(homeScoreB(scoreObj));
-
 console.log(scoreObj);
 
-  
-
 // Positive: Pure function with clear dependencies
-
 // Negative: More calls to the cloning function
 
-  
 
 // 3) Insert the clone function as a dependency
 
 const incrementHomeC = (obj, cloneFn) => {
 
 const newObj = cloneFn(obj);
-
 newObj.home += 1; // mutation
-
 return newObj;
 
 }
 
-  
-  
-
 const homeScoreC = pipe(
-
-x => incrementHomeC(x, shallowClone)
-
+	x => incrementHomeC(x, shallowClone)
 );
 
-  
 
 console.log(homeScoreC(scoreObj));
-
 console.log(scoreObj);
 
-  
-
 // Positive: Pure function with clear dependencies
-
 // Negatives: Non-unary functions in your pipe / compose chain
 ```
 

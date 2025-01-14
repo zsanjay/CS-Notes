@@ -4,7 +4,7 @@
 ### Hoisting
 
 Function declarations are scanned and made available (hoisted).
-Variable declaration are scanned and made undefined.
+Variable declaration are scanned and made undefined. 
 
 ### Temporal Dead Zone
 
@@ -31,7 +31,6 @@ According to the ECMAScript specification, value types are stored directly in th
 
 ## Implicit, Explicit, Nominal, Structuring and Duck Typing
 
-
 The ECMAScript specification defines JavaScript as a dynamically typed language, meaning that types are associated with values rather than variables, and type checking occurs at runtime. There are various ways JavaScript manages types:
 
 Implicit Typing (or Type Coercion): This occurs when JavaScript automatically converts one data type to another when required. For instance, JavaScript might convert a string to a number during an arithmetic operation. While this can simplify some code, it can also lead to unexpected results if not handled carefully.
@@ -43,6 +42,14 @@ Nominal Typing: JavaScript doesn't natively support nominal typing, where types 
 Structuring Typing: In this type system, types are based on the structure or properties of the data. JavaScript is a structurally typed language where objects are compatible if they share the same structure (i.e., the same set of properties and methods).
 
 Duck Typing: This is a concept where an object's suitability is determined by the presence of certain properties and methods, rather than by the actual type of the object. JavaScript relies heavily on duck typing, where behavior is inferred from an object's properties rather than its declared type.
+
+[Duck typing](https://en.wikipedia.org/wiki/Duck_typing) is a concept in programming that is often used in dynamic programming languages such as JavaScript, Python, and Ruby. It is a method of determining the type of an object based on its behavior or the methods and properties it possesses, rather than its explicit type or class.
+
+The term “duck typing” comes from the saying, “If it looks like a duck, swims like a duck, and quacks like a duck, then it probably is a duck.” In programming, this means that if an object behaves like a certain type, then it can be treated as that type, regardless of its actual class or type.
+
+For example, in JavaScript, you can use duck typing to check whether an object is iterable by checking whether it has a `Symbol.iterator` method. This method is used to define the iteration behavior of an object, and if an object has this method, it can be treated as iterable, even if it doesn’t explicitly implement the Iterable interface.
+
+https://byby.dev/js-duck-typing
 
 
 ## == vs === vs typeof
@@ -71,7 +78,6 @@ Lexical Scope: Refers to how variable access is determined based on the physical
 
 According to the ECMAScript specification, expressions produce a value, and statements are instructions to perform an action, such as variable assignment or control flow. Function declarations are hoisted and can be called before they are defined in the code, while function expressions are not hoisted and must be defined before being invoked.
 
-
 ## IIFE, Modules and Namespaces
 
 With the introduction of ES6 modules, the role of IIFEs in scope isolation has diminished but they still remain relevant.
@@ -85,9 +91,8 @@ Before we can understand what an IIFE is and why we need one, we need to review 
 Developers new to JavaScript are naturally comfortable with the following syntax when dealing with functions.
 
 ```javascript
-
 function sayHi() {
-alert("Hello, World!");
+	alert("Hello, World!");
 }
 
 sayHi(); // shows "Hello, World!" as alert in browser.|
@@ -235,6 +240,7 @@ https://ponyfoo.com/articles/es6-modules-in-depth#strict-mode
 The Event Loop is a critical part of JavaScript’s concurrency model, ensuring non-blocking behavior by processing tasks in an asynchronous manner. Understanding how it interacts with the Message Queue and Microtasks is key to mastering JavaScript behavior.
 
 https://hackernoon.com/understanding-js-the-event-loop-959beae3ac40
+
 ### What’s the Event Loop?
 
 You’ve probably heard that JavaScript is a single-threaded language. You may have even heard the terms Call Stack and Event Queue. Most people know that the Event Loop is what allows JavaScript to use callbacks and promises, but there’s a lot more to it. Without going into too much details we’ll have a high level view of how JavaScript code is actually executed.
@@ -306,8 +312,6 @@ https://www.digitalocean.com/community/tutorials/better-javascript-with-es6-pt-i
 ## Factory Functions
 
 https://www.youtube.com/watch?v=jpegXpQpb3o
-
-
 ## apply , bind and call
 
 # Function.prototype.apply()
@@ -316,18 +320,14 @@ The **`apply()`** method of [`Function`](https://developer.mozilla.org/en-US/
 
 ```js
 const numbers = [5, 6, 2, 3, 7];
-
 const max = Math.max.apply(null, numbers);
-
 console.log(max);
 // Expected output: 7
 
 const min = Math.min.apply(null, numbers);
-
 console.log(min);
 // Expected output: 2
 ```
-
 ## [Syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/apply#syntax)
 
 ```js
@@ -358,7 +358,6 @@ The result of calling the function with the specified `this` value and argumen
 The **`call()`** method of [`Function`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function) instances calls this function with a given `this` value and arguments provided individually.
 
 ```js
-
 function Product(name, price) {
   this.name = name;
   this.price = price;
@@ -392,11 +391,9 @@ The value to use as `this` when calling `func`. If the function is not in [s
 [`arg1`, …, `argN` Optional](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call#arg1)
 
 Arguments for the function.
-
 ### [Return value](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/call#return_value)
 
 The result of calling the function with the specified `this` value and arguments.
-
 
 # Function.prototype.bind()
 
@@ -486,15 +483,12 @@ So, what happens when we run the above code?
 We can now run a few simple `console.log` statements to test if it worked:
 
 ```js
-
 console.log(first.name);  
 // Johnconsole.log(first.age);  
 // 26
-
 ```
 
 Awesome. Let’s dive more into the `__proto__` portion of the new keyword.
-
 # Prototypes
 
 ==**_Every JavaScript object has a prototype. All objects in JavaScript inherit their methods and properties from their prototypes._**==
@@ -572,7 +566,8 @@ Add a new student and try it again:
 var third = new Student('Tracy', 15);// Now if we log third out, we see the object only has two  
 // properties, age and name. Yet, we still have access to the   
 // sayInfo function:third;  
-// Student {name: "Tracy", age: 15}third.sayInfo();  
+Student {name: "Tracy", age: 15}
+third.sayInfo();  
 // Tracy is 15 years old
 ```
 
@@ -585,12 +580,103 @@ var name = {
   toString: function(){  
     console.log('Not a good idea');  
   }  
-};name.toString();  
+};
+name.toString();  
 // Not a good idea
 ```
 
 Our object first checks to see if it has the method before moving to the prototype. Since we do have the method, it is run and there is no inheritance needed. But that’s not a good idea. Leave global methods as they are and name your functions something else.
 
+# Object.assign() 
+
+The **`Object.assign()`** static method copies all [enumerable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/propertyIsEnumerable) [own properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwn) from one or more _source objects_ to a _target object_. It returns the modified target object.
+
+```js
+const target = { a: 1, b: 2 };
+const source = { b: 4, c: 5 };
+
+const returnedTarget = Object.assign(target, source);
+
+console.log(target);
+// Expected output: Object { a: 1, b: 4, c: 5 }
+
+console.log(returnedTarget === target);
+// Expected output: true
+```
+
+```js
+Object.assign(target)
+Object.assign(target, source1)
+Object.assign(target, source1, source2)
+Object.assign(target, source1, source2, /* …, */ sourceN)
+```
+
+# Object.create()
+
+The **`Object.create()`** static method creates a new object, using an existing object as the prototype of the newly created object.
+
+```js
+const person = {
+  isHuman: false,
+  printIntroduction: function () {
+    console.log(`My name is ${this.name}. Am I human? ${this.isHuman}`);
+  },
+};
+
+person.printIntroduction();
+// "My name is undefined. Am I human? false"
+
+const me = Object.create(person);
+
+me.name = 'Matthew'; // "name" is a property set on "me", but not on "person"
+me.isHuman = true; // Inherited properties can be overwritten
+
+me.printIntroduction();
+// Expected output: "My name is Matthew. Am I human? true"
+```
+
+### [Classical inheritance with Object.create()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create#classical_inheritance_with_object.create)
+
+Below is an example of how to use `Object.create()` to achieve classical inheritance. This is for a single inheritance, which is all that JavaScript supports.
+
+```js
+// Shape - superclass
+function Shape() {
+  this.x = 0;
+  this.y = 0;
+}
+
+// superclass method
+Shape.prototype.move = function (x, y) {
+  this.x += x;
+  this.y += y;
+  console.info("Shape moved.");
+};
+
+// Rectangle - subclass
+function Rectangle() {
+  Shape.call(this); // call super constructor.
+}
+
+// subclass extends superclass
+Rectangle.prototype = Object.create(Shape.prototype, {
+  // If you don't set Rectangle.prototype.constructor to Rectangle,
+  // it will take the prototype.constructor of Shape (parent).
+  // To avoid that, we set the prototype.constructor to Rectangle (child).
+  constructor: {
+    value: Rectangle,
+    enumerable: false,
+    writable: true,
+    configurable: true,
+  },
+});
+
+const rect = new Rectangle();
+
+console.log("Is rect an instance of Rectangle?", rect instanceof Rectangle); // true
+console.log("Is rect an instance of Shape?", rect instanceof Shape); // true
+rect.move(1, 1); // Logs 'Shape moved.'
+```
 
 ### References
 

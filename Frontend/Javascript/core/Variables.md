@@ -29,7 +29,7 @@ variableDeclaration = 'value';
 You output to the console with console.log();
 
 ```js
-console.log('variableDeclaration');
+console.log(variableDeclaration);
 ```
 
 
@@ -59,8 +59,8 @@ const COLOR_GREEN = 'green';
 ```
 
 Regardless of the naming convention, it's best to use descriptive names for your variables.
-
 ### In JavaScript, data can belong to two different categories.
+
 ### Primitive value types or Reference types.
 
 Primitive types refer to simple, fundamental data.
@@ -115,7 +115,6 @@ BigInt, ends with the character n, and this is for very large numeric values.
 ```js
 let veryLargeNumber = 54389759347634976346n;
 ```
-
 #### Boolean
 
 The boolean data type holds the value of true or false.

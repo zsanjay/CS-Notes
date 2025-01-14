@@ -30,7 +30,7 @@ High Performant (fast put / get) - low latency
 
 ### LRU cache algorithm implementation
 
-```
+```java
 class Node {
 	private final String key;
 	private Object value;

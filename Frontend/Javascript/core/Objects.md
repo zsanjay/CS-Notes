@@ -71,10 +71,8 @@ console.log( Math.random() ); // returns a decimal value between 0 and 1
 
 ```js
 function getRandomCharacterFromName(name) {
-
-let index = Math.floor(Math.random() * name.length);
-
-return name.charAt(index);
+	let index = Math.floor(Math.random() * name.length);
+	return name.charAt(index);
 }
 ```
 
@@ -292,7 +290,6 @@ function Dog(name, breed, age, weightInPounds) {
     // this is done internally
     // return this;
 }
-
 ```
 
 To call the constructor function, we use a special keyword, new. So we would say that we, instantiated a new Dog object in memory. The new keyword, creates an empty JavaScript object.
@@ -338,7 +335,6 @@ person.eat = function() {
 
 person.eat();
 ```
-
 
 #### Constructor Property
 
@@ -422,9 +418,9 @@ newProgrammer.writeCode(); // Code in JavaScript
 
 #### Value vs Reference Types 
 
-We have eight different data types in JavaScript, which include 7 primitive data types, which include number, string, boolean, BigInt, undefined, null, and Symbol
+We have eight different data types in JavaScript, which include 7 primitive data types, which include number, string, boolean, BigInt, undefined, null, and Symbol.
 
-The eight data type are objects. Arrays and functions fall into the object category
+The eight data type are objects. Arrays and functions fall into the object category.
 
 The reason we differentiate the data types is because of how they are allocated in memory.
 
@@ -455,7 +451,7 @@ console.log(a); // 100
 console.log(b); // 100
 ```
 
-So they have the same value, this is because objects are passed by reference.\
+So they have the same value, this is because objects are passed by reference.
 
 Both of the variables a and b are assigned to the same object in memory (the same memory address).
 
@@ -564,194 +560,112 @@ const myObj = { name : "Sanjay" };
 
 const anotherObj = {
 
-alive : true,
-
-answer : 42,
-
-hobbies : ["Eat", "Sleep", "Code"],
-
-beverage: {
-
-morning : "Coffee",
-
-afternoon : "Iced Tea"
-
-},
-
-action : function() {
-
-return `Time for ${this.beverage.morning}`;
-
-}
-
+	alive : true,
+	answer : 42,
+	hobbies : ["Eat", "Sleep", "Code"],
+	beverage: {
+		morning : "Coffee",
+		afternoon : "Iced Tea"
+	},
+	
+	action : function() {
+		return `Time for ${this.beverage.morning}`;
+	}
 };
 
-  
-  
 
 // dot notation
-
 console.log(myObj.name);
-
 console.log(anotherObj.alive);
-
-  
-  
 
 console.log(anotherObj["alive"]);
 
-  
-
 console.log(anotherObj.beverage.morning);
-
-  
 
 console.log(anotherObj.action());
 
-  
-  
 
 const vehicle = {
-
-wheels : 4,
-
-engine : function() {
-
-return "Vrroooom!";
-
+	wheels : 4,
+	engine : function() {
+		return "Vrroooom!";
+	}
 }
 
-}
-
-  
 
 const truck = Object.create(vehicle);
 
 truck.doors = 2;
 
 console.log(truck);
-
 console.log(truck.__proto__.engine());
-
 console.log(truck.__proto__);
-
 console.log(truck.wheels); // Inheritance
-
 console.log(truck.engine());
 
-  
 
 const car = Object.create(vehicle);
-
 car.doors = 4;
-
 car.engine = function () {
-
-return "Whoooosh!";
-
+	return "Whoooosh!";
 };
 
 console.log(car.engine());
 
   
-  
-
 const tesla = Object.create(car);
-
 console.log(tesla.wheels);
-
 console.log(tesla.engine());
-
-  
 
 tesla.engine = () => "Shhhhh....";
-
-  
-
 console.log(tesla.engine());
 
-  
-  
 
 const band = {
-
-vocals: "Robert Plant",
-
-guitar: "Jimmy Page",
-
-bass : "John Paul Jones",
-
-drums : "John Bonham"
-
+	vocals: "Robert Plant",
+	guitar: "Jimmy Page",
+	bass : "John Paul Jones",
+	drums : "John Bonham"
 };
 
-  
 
 // deleting the key value pair
-
 delete band.drums;
-
 console.log(band.hasOwnProperty("drums"));
 
-  
-
 // Print all keys of the Object
-
 console.log(Object.keys(band));
 
-  
 
 // Print all values of the object
-
 console.log(Object.values(band));
 
-  
 
 // for in loop
-
-  
-
 for(let job in band) {
-
-console.log(`On ${job}, it's ${band[job]}!`);
-
+	console.log(`On ${job}, it's ${band[job]}!`);
 }
 
-  
-
 // destructuring objects
-
-  
-
 const newBand = {...band , drums : "John Bonham"};
-
-  
-
 const { guitar : myVariable, bass : myBass} = newBand;
 
-  
-
 console.log(myVariable);
-
 console.log(myBass);
 
-  
 
 const { vocals, guitar, bass, drums} = newBand;
-
 console.log(guitar);
-
 console.log(vocals);
-
 console.log(drums);
 
 
 function sings({vocals}) {
-
-return `${vocals} sings!`;
-
+	return `${vocals} sings!`;
 }
 
 console.log(sings(newBand));
 ```
+
+
 

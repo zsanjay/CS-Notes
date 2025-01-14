@@ -63,7 +63,7 @@ Comparison operators includes :
 <, less than
 <=, less than or equal to
 
-// The result of a comparison operator is a boolean value, true or false.
+The result of a comparison operator is a boolean value, true or false.
 
 ```js
 let num1 = 14;
@@ -127,7 +127,6 @@ console.log('canDrive', canDrive);
 let points = 110;
 const customerType = points > 100 ? 'gold' : 'silver';
 console.log('customerType', customerType);
-
 ```
 
 6. Logical Operator
@@ -235,7 +234,6 @@ anything else that doesn't fall in this category is considered truthy.
 ```js
 console.log(false || 1 || 2); // returns 1
 ```
-
 
 The JavaScript OR operator, ||, performs short-circuit evaluation. Meaning it stops the expression once it can evaluate to 'truthy' or 'falsy'.
 

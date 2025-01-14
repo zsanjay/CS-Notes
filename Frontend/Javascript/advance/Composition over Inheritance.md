@@ -7,14 +7,13 @@ From the example, we can see that we have a base class **“_Element_”** and
 
 Also, maybe you heard **is-a** relationship. What does it mean? For example, “_**Form**_” is an “_**Element**_” and “_**Button**_” is an “_**Element**_”.
 
-Another example, we can create a base class “_**Animal**_” and our subclasses like “_**Bird**_”, “_**Dog**_”, “_**Cat**_” also has **is-a**relationship. Why? Because “_**Bird**_” is an “_**Animal”**_, “_**Dog**_” is an “_**Animal**_” and “_**Cat**_” is also an “_**Animal**_”.
+Another example, we can create a base class “_**Animal**_” and our subclasses like “_**Bird**_”, “_**Dog**_”, “_**Cat**_” also has **is-a** relationship. Why? Because “_**Bird**_” is an “_**Animal”**_, “_**Dog**_” is an “_**Animal**_” and “_**Cat**_” is also an “_**Animal**_”.
 
 And now, let’s speak a little bit about _**composition**_. Unlike inheritance, the composition uses a **has-a** relationship. We collect different pieces of functionality together. Let’s see an example:
 
 ![image](https://hackernoon.imgix.net/images/S0zuR5PfGFN2e1h8xuRZHD1SPBK2-tpa3ml0.png?w=800&q=75&auto=format)
 
-In this example, we can see that we have main class “_**Car**_” that uses “_**Engine**_” and “_**Transmission**_”.
-
+In this example, we can see that we have main class “_**Car**_” that uses “_**Engine**_” and  “_**Transmission**_”.
   ![image](https://hackernoon.imgix.net/images/S0zuR5PfGFN2e1h8xuRZHD1SPBK2-whb3mty.png?w=800&q=75&auto=format)
 
 In this example, we can’t say that “_**Engine**_“ is a “_**Car**_” or “_**Transmission**_” is a “_**Car**_”. But, we can say that “_**Car**_” has “_**Transmission**_” or “_**Car**_” has “_**Engine**_”.
@@ -90,15 +89,11 @@ I really hope that now, you can see the difference between inheritance and compo
 
 In general, inheritance could answer the **“is-a”** relationship, when composition **“has-a”.**
 
-
 But in practice, as we can see _**inheritance**_, is sometimes not a good approach. Just in our example, the driver is an employee and the manager also is an employee. But when our task is to combine different pieces into a single item, like here, _**composition**_ really could be much better than _**inheritance**_.
-
 
 At the end of this article, I want to focus on that both _**inheritance**_ and **composition** are good approaches when you are using them in the right place when they should be. In one situation composition is better than inheritance and in another situation vice versa.
 
-
 And of course, we can combine _**inheritance**_ and _**composition**_ together, if we have **“is-a”** relationship, but we want to add different values or methods, we can have some base class, that gives all common functionality for our instances, and we can also use composition to add other, specific functionality.
-
 
 ```js
 // Why to choose composition over inheritance.
@@ -106,15 +101,10 @@ And of course, we can combine _**inheritance**_ and _**composition**_ togeth
 class Pizza {
 
 constructor(size, crust, sauce) {
-
-this.size = size;
-
-this.crust = crust;
-
-this.sauce = sauce;
-
-this.toppings = [];
-
+	this.size = size;
+	this.crust = crust;
+	this.sauce = sauce;
+	this.toppings = [];
 }
 
 prepare() { console.log('Preparaing...') }
@@ -125,18 +115,12 @@ ready() { console.log('Ready!') }
 
 }
 
-  
-
 // Problem: Repeating methods - Not D.R.Y.
-
 class Salad {
 
 constructor(size, dressing) {
-
-this.size = size;
-
-this.dressing = dressing;
-
+	this.size = size;
+	this.dressing = dressing;
 }
 
 prepare() { console.log('Preparaing...') }
@@ -147,185 +131,102 @@ ready() { console.log('Ready!') }
 
 }
 
-  
 
 class StuffedCrustPizza extends Pizza {
-
-stuff() { console.log('Stuffing the crust...') }
-
+	stuff() { console.log('Stuffing the crust...') }
 }
 
   
-
 class ButterCrustPizza extends Pizza {
-
-butter() { console.log('Buttering the crust...') }
-
+	butter() { console.log('Buttering the crust...') }
 }
 
   
-
 // Problem: Repeating methods - Not D.R.Y.
-
 class StuffedButteredCrustPizza extends Pizza {
-
-stuff() { console.log('Stuffing the crust...') }
-
-butter() { console.log('Buttering the crust...') }
-
+	stuff() { console.log('Stuffing the crust...') }
+	butter() { console.log('Buttering the crust...') }
 }
-
-  
 
 const myPizza = new StuffedButteredCrustPizza();
 
 myPizza.stuff();
-
 myPizza.butter();
 
-  
-  
 
 // Instead, use composition for methods
-
 const prepare = () => {
-
-return {
-
-prepare : () => console.log('Preparaing...')
-
+	return {
+		prepare : () => console.log('Preparaing...');
+	}
 }
-
-}
-
-  
 
 const bake = () => {
-
-return {
-
-bake: () => console.log('Baking...')
-
+	return {
+		bake: () => console.log('Baking...');
+	}
 }
-
-}
-
-  
 
 const toss = () => {
-
-return {
-
-toss: () => console.log('Tossing...')
-
+	return {
+		toss: () => console.log('Tossing...');
+	}
 }
-
-}
-
-  
 
 const ready = () => {
-
-return {
-
-ready: () => console.log('Ready!')
-
+	return {
+		ready: () => console.log('Ready!');
+	}
 }
-
-}
-
-  
 
 const stuff = () => {
-
-return {
-
-stuff() { console.log('Stuffing the crust...') }
-
+	return {
+		stuff() { console.log('Stuffing the crust...') }
+	}
 }
-
-}
-
-  
 
 const butter = () => {
-
-return {
-
-butter() { console.log('Buttering the crust...') }
-
+	return {
+		butter() { console.log('Buttering the crust...') }
+	}
 }
 
-}
-
-  
 
 const createPizza = (size, crust, sauce) => {
-
-const pizza = {
-
-size: size,
-
-crust: crust,
-
-sauce: sauce,
-
-toppings: []
-
+	const pizza = {
+		size: size,
+		crust: crust,
+		sauce: sauce,
+		toppings: []
+	}
+	  
+	return {
+		...pizza,
+		...prepare(),
+		...bake(),
+		...ready()
+	}
 }
 
-  
-
-return {
-
-...pizza,
-
-...prepare(),
-
-...bake(),
-
-...ready()
-
-}
-
-}
-
-  
 
 const createSalad = (size, dressing) => {
-
-return {
-
-size: size,
-
-dressing: dressing,
-
-...prepare(),
-
-...toss(),
-
-...ready()
-
+	return {
+		size: size,
+		dressing: dressing,
+		...prepare(),
+		...toss(),
+		...ready()
+	}
 }
 
-}
-
-  
 
 // Compare to ES6 Class syntax with extends and super()
-
 const createStuffedButteredCrustPizza = (pizza) => {
-
-return {
-
-...pizza,
-
-...stuff(),
-
-...butter()
-
-}
-
+	return {
+		...pizza,
+		...stuff(),
+		...butter()
+	}
 }
 
   
@@ -333,99 +234,56 @@ return {
 const anotherPizza = createPizza("medium" , "thin", "original");
 
 const somebodysPizza = createStuffedButteredCrustPizza(anotherPizza);
-
 // OR
-
 const davesPizza = createStuffedButteredCrustPizza(createPizza("medium" , "thin", "original"));
-
-  
 
 const sanjaysSalad = createSalad("side", "ranch");
 
-  
-
 davesPizza.bake();
-
 davesPizza.stuff();
-
 sanjaysSalad.prepare();
 
 console.log(davesPizza);
-
 console.log(sanjaysSalad);
 
-  
 
 // This is the impure function
-
 const addTopping = (pizza, topping) => {
-
-pizza.toppings.push(topping);
-
-return pizza;
-
+	pizza.toppings.push(topping);
+	return pizza;
 }
 
-  
 
 const jimsPizza = createPizza("medium" , "thin", "original");
-
 console.log(jimsPizza);
-
 console.log(addTopping(jimsPizza, "pepperoni")); // mutation!
 
-  
-  
-
 // We need to clone the pizza object to avoid mutation
-
 // Function composition:
 
 /* const shallowPizzaClone = (fn) => {
-
-return (obj, array) => {
-
-const newObj = { ...obj };
-
-return fn(newObj, array);
-
-}
-
+	return (obj, array) => {
+		const newObj = { ...obj };
+		return fn(newObj, array);
+	}
 } */
-
-  
-  
 
 const shallowPizzaClone = (fn) => (obj, array) => fn({ ...obj }, array);
 
-  
-
 // Pure Function
-
 let addToppings = (pizza, toppings) => {
-
-pizza.toppings = [...pizza.toppings, ...toppings];
-
-return pizza;
-
+	pizza.toppings = [...pizza.toppings, ...toppings];
+	return pizza;
 }
 
-  
-
 // Decorate the addToppings function with shallowPizzaClone
-
 addToppings = shallowPizzaClone(addToppings);
 
-  
-
 const timsPizza = createPizza("medium", "thin", "original");
-
 const timsPizzaWithToppings = addToppings(timsPizza, ["olives", "cheese", "pepperoni"]);
 
 console.log(timsPizzaWithToppings);
-
 console.log(timsPizza);
-
 console.log(timsPizzaWithToppings === timsPizza);
 ```
 

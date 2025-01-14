@@ -8,55 +8,31 @@
 
 #### A closure is created when we define a function, not when a function is executed.
 
-
 ```js
-
 // Global Scope
-
 let x = 1;
-
-  
 
 const parentFn = () => {
 
 // Local Scope
-
 let myValue = 2;
 
 console.log(x);
-
 console.log(myValue);
 
-  
-
 const childFn = () => {
-
-console.log(x += 5);
-
-console.log(myValue += 1);
-
+	console.log(x += 5);
+	console.log(myValue += 1);
 }
-
-  
-
 return childFn;
-
 }
-
-  
 
 const result = parentFn();
-
 console.log(result);
 
-  
-
 result(); // x = 6, myValue = 3
-
 result(); // x = 11, myValue = 4
-
 result(); // x = 16, myValue = 5
-
 console.log(x); // x = 16
 ```
 

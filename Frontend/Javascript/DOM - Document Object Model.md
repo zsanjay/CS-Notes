@@ -18,27 +18,18 @@ https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduct
 <style>
 
 * {
-
-margin: 0;
-
-padding: 0;
-
-box-sizing: border-box;
-
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 html {
-
-font-family: Arial, Helvetica, sans-serif;
-
-font-size: 16px;
-
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
 }
 
 body {
-
-min-height: 100vh;
-
+	min-height: 100vh;
 }
 
 main {

@@ -14,14 +14,11 @@ var user = null;
 if(user) {
 	console.log("Condition is true");
 }
-
 // Nothing will print
-
 user = "null";
 if(user) {
 	console.log("Condition is true");
 }
-
 // Condition is true
 ```
 
@@ -38,6 +35,10 @@ if(2 === user) { // False
 	console.log("Condition is true");
 }
 
+if(2 == user) {
+	console.log("Condition is true");
+}
+// Condition is true.
 ```
 
 

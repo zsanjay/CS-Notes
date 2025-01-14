@@ -221,7 +221,6 @@ makeBurger().then(serve);
 ```
 
 Much easier to read and manage.
-
 But the question is how do you convert callback-based code into promise-based code.
 
 #### Converting callbacks to promises
@@ -255,7 +254,7 @@ const cookBeefPromise = beef => {
 
 In practice, callbacks would probably be written for you already. If you use Node, each function that contains a callback will have the same syntax:
 
-1. The callback would be the last argument
+1. The callback would be the last argument.
 2. The callback will always have two arguments. And these arguments are in the same order. (Error first, followed by whatever you’re interested in).
 
 ```javascript
@@ -268,7 +267,7 @@ const functionName = (arg1, arg2, callback) => {
 // How you use the function
 functionName(arg1, arg2, (err, stuff) => {
   if (err) {
-  console.error(err);
+	  console.error(err);
   }
   // Do stuff
 });

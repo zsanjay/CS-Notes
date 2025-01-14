@@ -1,336 +1,205 @@
-```js
-// Foundational Knowledge for Writing Pure Functions
 
-// Javascript Data Types
+#### Foundational Knowledge for Writing Pure Functions
 
-// Primitive vs Structural
+#### Javascript Data Types
 
-/* Primitive:
+#### Primitive vs Structural
+
+##### Primitive:
 
 1) undefined
-
 2) Boolean
-
 3) Number
-
 4) String
-
 5) BigInt
-
 6) Symbol
 
-*/
-
-  
-
-/* Structural:
+Structural:
 
 1) Object: (new) Object, Array, Map, Set, WeakMap, Date
-
 2) Function
 
-*/
+#### Value vs Reference
 
-  
+##### Primitive pass values:
 
-// Value vs Reference
-
-// Primitive pass values:
-
-  
-
+```js
 let x = 2;
-
 let y = x;
-
 y += 1;
 
-console.log(y);
-
-console.log(x);
-
-  
+console.log(y); // 3
+console.log(x); // 2
 
 // Structural types use references:
 
 let xArray = [1, 2, 3];
-
 let yArray = xArray;
-
 yArray.push(4);
 
-console.log(yArray);
-
-console.log(xArray);
-
-  
+console.log(yArray); // [1, 2, 3, 4]
+console.log(xArray); // [1, 2, 3, 4]
 
 // Mutable vs Immutable
-
-  
 
 // Primitives are immutable
 
 let myName = "Dave";
-
 myName[0] = "W"; // we can't change this
 
 console.log(myName);
 
-  
-
 // Reassignment is not the same as mutable
-
 myName = "David";
-
 console.log(myName);
 
   
-
 // Structures contain mutable data
-
 yArray[0] = 9;
 
 console.log(yArray);
-
 console.log(xArray);
+```
 
-  
-  
+##### Pure Function require you to avoid mutating the data.
 
-// Pure Function require you to avoid mutating the data.
+#### Impure function 
 
-  
+- It mutates the original array.
+- It is considered to be a side-effect.
+#### const
 
-// Impure function that mutates the data
+Notice: "const" does not make the array immutable, it stops you to reassign a value.
 
+```js
 const addToScoreHistory = (array, score) => {
-
-array.push(score);
-
-return array;
-
+	array.push(score);
+	return array;
 }
 
-  
-
 const scoreArray = [44, 23, 12];
+console.log(addToScoreHistory(scoreArray, 14)); // [44, 23, 12, 14]
+```
+#### Shallow copy vs Deep copy (clones).
 
-console.log(addToScoreHistory(scoreArray, 14));
+#### Shallow copy
 
-  
+1. With the spread operator
+2. With Object.assign()
 
-// This mutates the original array.
 
-// This is considered to be a side-effect.
-
-  
-
-// Notice: "const" does not make the array immutable,
-
-// it stops you to reassign a value.
-
-  
-
-// Shallow copy vs Deep copy (clones)
-
-  
-
-// Shallow copy
-
+```js
 // 1. With the spread operator
-
 const zArray = [...yArray , 10];
 
-console.log(zArray);
+console.log(zArray); // [1, 2, 3, 10]
+console.log(yArray === zArray); // false
 
   
-
-console.log(xArray === yArray);
-
-console.log(yArray === zArray);
-
-  
-
 // 2. With Object.assign()
-
 const tArray = Object.assign([], zArray);
 
-console.log(tArray);
-
-console.log(tArray === zArray);
+console.log(tArray); // [1, 2, 3, 10]
+console.log(tArray === zArray); // false
 
 tArray.push(11);
 
-console.log(zArray);
+console.log(zArray); // [1, 2, 3, 10]
+console.log(tArray); // [1, 2, 3, 10. 11]
+```
 
-console.log(tArray);
+But if there are nested arrays or objects...
 
-  
-
-// But if there are nested arrays or objects...
-
+```js
 yArray.push([8, 9, 10]);
 
-console.log(yArray);
+console.log(yArray); // [1, 2, 3,[8, 9, 10]]
 
 const vArray = [...yArray];
 
-console.log(vArray);
+console.log(vArray); // [1, 2, 3,[8, 9, 10]]
 
-vArray[vArray.length - 1].push(11);
+vArray[vArray.length - 1].push(11); // [1, 2, 3,[8, 9, 10, 11]]
 
-console.log(vArray[vArray.length - 1]);
+console.log(vArray[vArray.length - 1]); // [8, 9, 10, 11]
+console.log(yArray[yArray.length - 1]); // [8, 9, 10, 11]
 
-console.log(yArray[yArray.length - 1]);
+```
 
-  
+Nested structural data types still share a reference when we use a shallow copy!
+Note: Array.from() and slice() create shallow copies, too.
 
-// nested structural data types still share a reference when we use a shallow copy!
+When it comes to objects, what about Object.freeze() ?
 
-  
-
-// Note: Array.from() and slice() create shallow copies, too.
-
-  
-
-// When it comes to objects, what about...
-
-// ...Object.freeze() ??
-
-  
-
+```js
 const scoreObj = {
-
-"first" : 44,
-
-"second" : 12,
-
-"third" : { "a" : 1, "b": 2}
-
+	"first" : 44,
+	"second" : 12,
+	"third" : { "a" : 1, "b": 2}
 }
 
-  
-
 Object.freeze(scoreObj);
-
 scoreObj.third.a = 8;
 
-console.log(scoreObj);
+console.log(scoreObj); // { first: 44, second: 12, third: { a: 8, b: 2 } }
+```
 
-// still mutates - it is a shallow freeze
+Still mutates - it is a shallow freeze.
 
-  
+##### Deep Copy
 
-// How do we avoid these mutations?
+Several libraries like lodash, Ramda, and others have this feature built-in. Here is a one line Vanilla JS solution, but it does not work with Dates, functions, undefined, Infinity, RegExps, Maps, Sets, Blobs, FileLists, ImageDatas, and other complex data types.
 
-  
-
-// Deep copy is needed to avoid this
-
-  
-
-// Several libraries like lodash, Ramda, and others
-
-// have this feature built-in
-
-  
-
-/* Here is a one line Vanilla JS solution,
-
-but it does not work with Dates, functions, undefined, Infinity, RegExps,
-
-Maps, Sets, Blobs, FileLists, ImageDatas, and other complex data types
-
-*/
-
-  
-
+```js
 const newScoreObj = JSON.parse(JSON.stringify(scoreObj));
 
-console.log(newScoreObj);
-
-console.log(newScoreObj === scoreObj);
-
-  
+console.log(newScoreObj); // { first: 44, second: 12, third: { a: 1, b: 2 } }
+console.log(newScoreObj === scoreObj); // false
 
 console.clear();
 
 // Instead of using a library, here is a Vanilla JS function
-
-  
-
 const deepClone = (obj) => {
-
-  
-
-if(typeof obj !== "object" || obj === null) return obj;
-
-  
-
-// Create an array or object to hold the values
-
-const newObject = Array.isArray(obj) ? [] : {};
-
-  
-
-for(let key in obj) {
-
-const value = obj[key];
-
-// recursive call for nested objects & arrays
-
-newObject[key] = deepClone(value);
-
-}
-
-return newObject;
-
+	if(typeof obj !== "object" || obj === null) return obj;
+	// Create an array or object to hold the values
+	const newObject = Array.isArray(obj) ? [] : {};
+	
+	for(let key in obj) {
+		const value = obj[key];
+		// recursive call for nested objects & arrays
+		newObject[key] = deepClone(value);
+	}
+	return newObject;
 }
 
   
 
 // Deep cloning array
-
+const scoreArray = [44, 23, 12, 14];
 const newScoreArray = deepClone(scoreArray);
 
-console.log(newScoreArray);
+console.log(newScoreArray); // [ 44, 23, 12, 14 ]
+console.log(newScoreArray === scoreArray); // false
 
-console.log(newScoreArray === scoreArray);
-
-  
 
 // Deep cloning object
-
 const myScoreObj = deepClone(scoreObj);
 
-console.log(myScoreObj);
+console.log(myScoreObj); // { first: 44, second: 12, third: { a: 1, b: 2 } }
+console.log(myScoreObj === scoreObj); // false
 
-console.log(myScoreObj === scoreObj);
-
-  
 
 // Now we can make a pure function
-
 const pureAddToScoreHistory = (array, score, cloneFunc) => {
-
-const newArray = cloneFunc(array);
-
-newArray.push(score);
-
-return newArray;
-
+	const newArray = cloneFunc(array);
+	newArray.push(score);
+	return newArray;
 }
-
-  
 
 const pureScoreHistory = pureAddToScoreHistory(scoreArray, 18, deepClone);
 
-  
-
-console.log(pureScoreHistory);
-
-console.log(scoreArray);
+console.log(pureScoreHistory); // [ 44, 23, 12, 14, 18]
+console.log(scoreArray); // [ 44, 23, 12, 14]
 ```
 
 ### References

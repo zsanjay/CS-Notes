@@ -5,30 +5,18 @@ Classes are a template for creating objects. They encapsulate data with code to 
 #### Class
 
 ```js
-
 class Pizza {
 
-constructor(pizzaType , pizzaSize) {
+	constructor(pizzaType , pizzaSize) {
+		this.type = pizzaType;
+		this.size = pizzaSize;
+		this.crust = "original";
+		this.toppings = [];
+	}
 
-this.type = pizzaType;
-
-this.size = pizzaSize;
-
-this.crust = "original";
-
-this.toppings = [];
-
-}
-
-  
-
-bake() {
-
-console.log(`Baking a ${this.size} ${this.type} ${this.crust} crust pizza.`);
-
-}
-
-  
+	bake() {
+		console.log(`Baking a ${this.size} ${this.type} ${this.crust} crust pizza.`);
+	}
 
 // get pizzaCrust() {
 
@@ -43,35 +31,21 @@ console.log(`Baking a ${this.size} ${this.type} ${this.crust} crust pizza.`);
 // }
 
   
+	getCrust() {
+		return this.crust;
+	}
 
-getCrust() {
+	setCrust(crust) {
+		this.crust = crust;
+	}
 
-return this.crust;
+	getToppings() {
+		return this.toppings;
+	}
 
-}
-
-setCrust(crust) {
-
-this.crust = crust;
-
-}
-
-  
-
-getToppings() {
-
-return this.toppings;
-
-}
-
-  
-
-setToppings(topping) {
-
-this.toppings.push(topping);
-
-}
-
+	setToppings(topping) {
+		this.toppings.push(topping);
+	}
 }
 
   
@@ -79,11 +53,8 @@ this.toppings.push(topping);
 const myPizza = new Pizza("farmhouse" , "large");
 
 myPizza.setCrust("thin");
-
 myPizza.bake();
-
 myPizza.setToppings("sausage");
-
 myPizza.setToppings("olives");
 
 console.log(myPizza.getToppings());
@@ -132,54 +103,36 @@ console.log(myPizza.getToppings());
 
 class Pizza {
 
-crust = "original"; // public field
-
-#sauce = "traditional"; // private field
-
-#size;
-
-// both types of field should be declared above the constructor.
-
-constructor(pizzaSize) {
-
-this.#size = pizzaSize;
-
-}
-
-  
-
-getCrust() {
-
-return this.crust;
-
-}
-
-setCrust(crust) {
-
-this.crust = crust;
+	crust = "original"; // public field
+	#sauce = "traditional"; // private field
+	#size;
+	
+	// both types of field should be declared above the constructor.
+	constructor(pizzaSize) {
+		this.#size = pizzaSize;
+	}
+	
+	getCrust() {
+		return this.crust;
+	}
+	
+	setCrust(crust) {
+		this.crust = crust;
+	}
+	
+	hereYouGo() {
+		console.log(`Here's your ${this.crust} ${this.#sauce} sauce ${this.#size} pizza.`);
+	}
 
 }
 
-  
-
-hereYouGo() {
-
-console.log(`Here's your ${this.crust} ${this.#sauce} sauce ${this.#size} pizza.`);
-
-}
-
-}
-
-  
 
 const pizza = new Pizza("large");
 
 pizza.hereYouGo();
 
 console.log(pizza.getCrust()); // original
-
 console.log(pizza.crust); // original
-
 console.log(pizza.sauce); // undefined
 ```
 
@@ -187,43 +140,30 @@ console.log(pizza.sauce); // undefined
 
 ```js
 class Pizza {
+	constructor(pizzaSize) {
+		this.size = pizzaSize;
+		this.crust = "original";
+	}
 
-constructor(pizzaSize) {
-
-this.size = pizzaSize;
-
-this.crust = "original";
-
-}
-
-
-getCrust() {
-
-return this.crust;
-
-}
-
-setCrust(crust) {
-
-this.crust = crust;
-
-}
+	getCrust() {
+		return this.crust;
+	}
+	
+	setCrust(crust) {
+		this.crust = crust;
+	}
 }
 
 class SpecialityPizza extends Pizza {
 
-constructor(pizzaSize){
+	constructor(pizzaSize){
+		super(pizzaSize);
+		this.type = "The Works";
+	}
 
-super(pizzaSize);
-
-this.type = "The Works";
-
-}
-
-slice() {
-console.log(`Our ${this.type} ${this.size} pizza has 8 slices.`);
-}
-
+	slice() {
+		console.log(`Our ${this.type} ${this.size} pizza has 8 slices.`);
+	}
 }
 
 const mySpecialty = new SpecialityPizza("medium");
@@ -236,45 +176,31 @@ Refer to MDN docs:
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON
 
 ```js
-
 const myObj = {
-
-name : "Dave",
-
-hobbies : ["eat", "sleep", "code"],
-
-hello : function () {
-
-console.log("Hello!");
-
-}
-
+	name : "Dave",
+	hobbies : ["eat", "sleep", "code"],
+	hello : function () {
+		console.log("Hello!");
+	}
 };
 
   
 console.log(myObj);
-
 console.log(myObj.name);
 
 myObj.hello();
 
 console.log(typeof myObj);
-
   
 // convert object into json.
-
 const sendJSON = JSON.stringify(myObj);
-
 console.log(sendJSON);
 
 console.log(typeof sendJSON);
-
 console.log(sendJSON.name);
 
-  
-
+// convert json into object.
 const receiveJSON = JSON.parse(sendJSON);
-
 console.log(receiveJSON);
 
 console.log(typeof receiveJSON);

@@ -1,3 +1,4 @@
+
 Refer to docs :
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules 
 
@@ -10,7 +11,7 @@ type = "modules" does two things:
 1. Includes defer
 2. Applies 'use strict'
 
-#### import and export
+#### Import and export
 
 ##### Export 
 
@@ -39,7 +40,7 @@ export default class User {
 		this._name = name; // _ means private
 	}
 	greeting() {
-	return `Hi, my name is ${this._name}.`;
+		return `Hi, my name is ${this._name}.`;
 	}
 }
 ```

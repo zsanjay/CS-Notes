@@ -39,7 +39,7 @@ Now, for simplicity, let us divide the overall architecture into three flows. We
 #### 1.  User Onboarding Flow
 
 
-![[Pasted image 20241219205746.png]]
+![[20241219205746.png]]
 
 We have a **User Service** that will store all the user-related information in our system and provide endpoints for login, register, and any other internal services that need user-related information by providing GET APIs to fetch users by id or email, POST APIs to add or edit user information and bulk GET APIs to fetch information about multiple users. This user service sits on top of a **User DB** which is a**MySQL** database. We use MySQL here as we have a finite number of users and the data is very relational. Also, the User DB will mostly power the writes and the reads related to user details will be powered by a **Redis** cache which is an image of User DB. When user service receives a GET request with a user id, it will firstly lookup in the Redis cache, if the user is present in the Redis it will return the response. Otherwise, it will fetch the information from User DB, store it in Redis, and then respond to the client.
 

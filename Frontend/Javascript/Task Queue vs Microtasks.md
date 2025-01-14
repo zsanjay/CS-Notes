@@ -1,7 +1,6 @@
 Promise callbacks are handled as a [microtask](https://developer.mozilla.org/en-US/docs/Web/API/HTML_DOM_API/Microtask_guide) whereas [`setTimeout()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout "setTimeout()") callbacks are handled as task queues.
 
 ```js
-
 const promise = new Promise((resolve, reject) => {
   console.log("Promise callback");
   resolve();
@@ -14,7 +13,6 @@ setTimeout(() => {
 }, 0);
 
 console.log("Promise (pending)", promise);
-
 ```
 
 The code above will output:
@@ -26,36 +24,31 @@ Promise callback (.then)
 event-loop cycle: Promise (fulfilled) Promise {<fulfilled>}
 ```
 
-
-#### Tasks vs. microtasks
+#### Tasks vs. Micro tasks
 
 A **task** is anything scheduled to be run by the standard mechanisms such as initially starting to execute a script, asynchronously dispatching an event, and so forth. Other than by using events, you can enqueue a task by using [`setTimeout()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/setTimeout "setTimeout()") or [`setInterval()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/setInterval "setInterval()").
 
-The difference between the task queue and the microtask queue is simple but very important:
+The difference between the task queue and the micro task queue is simple but very important:
 
 - When a new iteration of the event loop begins, the runtime executes the next task from the task queue. Further tasks and tasks added to the queue after the start of the iteration _will not run until the next iteration_.
 - Whenever a task exits and the execution context stack is empty, all microtasks in the microtask queue are executed in turn. The difference is that execution of microtasks continues until the queue is empty—even if new ones are scheduled in the interim. In other words, microtasks can enqueue new microtasks and those new microtasks will execute before the next task begins to run, and before the end of the current event loop iteration.
 
-
 ## [Macrotasks and Microtasks](https://javascript.info/event-loop#macrotasks-and-microtasks)
 
-Along with _macrotasks_, described in this chapter, there are _microtasks_, mentioned in the chapter [Microtasks](https://javascript.info/microtask-queue).
+Along with _macro tasks_, described in this chapter, there are _microtasks_, mentioned in the chapter [Microtasks](https://javascript.info/microtask-queue).
 
 Microtasks come solely from our code. They are usually created by promises: an execution of `.then/catch/finally` handler becomes a microtask. Microtasks are used “under the cover” of `await` as well, as it’s another form of promise handling.
 
-There’s also a special function `queueMicrotask(func)` that queues `func` for execution in the microtask queue.
+There’s also a special function `queueMicrotask(func)` that queues `func` for execution in the micro task queue.
 
-**Immediately after every _macrotask_, the engine executes all tasks from _microtask_ queue, prior to running any other macrotasks or rendering or anything else.**
+**Immediately after every _macro task_, the engine executes all tasks from _microtask_ queue, prior to running any other macrotasks or rendering or anything else.**
 
 For instance, take a look:
 
 ```js
-
 setTimeout(() => alert("timeout"));
 
-Promise.resolve()
-
-.then(() => alert("promise"));
+Promise.resolve().then(() => alert("promise"));
 
 alert("code");
 ```
@@ -72,49 +65,32 @@ That’s important, as it guarantees that the application environment is basical
 
 If we’d like to execute a function asynchronously (after the current code), but before changes are rendered or new events handled, we can schedule it with `queueMicrotask`.
 
-Here’s an example with “counting progress bar”, similar to the one shown previously, but `queueMicrotask` is used instead of `setTimeout`. You can see that it renders at the very end. Just like the synchronous code:
+Here’s an example with “counting progress bar”, similar to the one shown previously, but `queueMicrotask` is used instead of `setTimeout`. You can see that it renders at the very end. 
+
+Just like the synchronous code:
 
 ```js
-
 <!doctype html>
-
 <body>
-
 <div id="progress"></div>
-
 <script>
-
 let i = 0;
-
-
+	
 function count() {
-
-
-// do a piece of the heavy job (*)
-
-do {
-
-i++;
-
-progress.innerHTML = i;
-
-} while (i % 1e3 != 0);
-
-  
-
-if (i < 1e6) {
-
-queueMicrotask(count);
-
+	// do a piece of the heavy job (*)
+	do {
+		i++;
+		progress.innerHTML = i;
+	} while (i % 1e3 != 0);
+	
+	if (i < 1e6) {
+		queueMicrotask(count);
+	}
 }
-
-}
-
 
 count();
 
 </script>
-
 </body>
 ```
 
@@ -146,7 +122,6 @@ To schedule a new _microtask_
 There’s no UI or network event handling between microtasks: they run immediately one after another.
 
 So one may want to `queueMicrotask` to execute a function asynchronously, but within the environment state.
-
 
 [What will be the output of this code?](https://javascript.info/event-loop#what-will-be-the-output-of-this-code)
 

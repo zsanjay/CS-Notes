@@ -12,7 +12,7 @@ You specify how you want the container to be deployed, and Kubernetes takes care
 
 ## Why do we need Kubernetes?
 
-![[20250116104651.png]]
+![Kubernetes](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116104651.png)
 
 The first question when it comes to Kubernetes or a container orchestrator is why we need it. Let’s understand it from two real-world examples.
 
@@ -40,7 +40,7 @@ Using Kubernetes, you just have to worry about your application development and 
 
 All heavy lifting like networking, service-to-service communication across nodes, load balancing, service discovery, resource scheduling, scalability, and high availability are taken care of by Kubernetes.
 
-![[20250116105016.png]]
+![Kub1](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116105016.png)
 
 Overall Kubernetes helps you achieve the following.
 
@@ -51,7 +51,8 @@ Overall Kubernetes helps you achieve the following.
 
 ## [Kubernetes basic terms and concepts](https://spacelift.io/blog/kubernetes-tutorial#kubernetes-basic-terms-and-concepts)
 
-![[20250116114158.png]]
+![Kub2](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116114158.png)
+
 ### Nodes
 
 Nodes represent the physical machines that form your [Kubernetes cluster](https://spacelift.io/blog/kubernetes-cluster). They run the containers you create. Kubernetes tracks the status of your nodes and exposes each one as an object. You used Kubectl to retrieve a list of nodes in the example above.
@@ -65,7 +66,6 @@ While your fresh cluster has only one node, Kubernetes advertises support for [
 In simple situations, Pods will usually map one-to-one with the containers your application runs. In more advanced cases, Pods can be enhanced with [init containers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers) and [ephemeral containers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers) to customize startup behavior and provide detailed debugging.
 
 ### [[Kubernetes Services]]
-
 
 ### What Is Kubectl-Port-Forward & Why Do We Use It in Kubernetes?
 
@@ -103,39 +103,39 @@ Let's break down the different components of this command:
 
 [Secrets](https://spacelift.io/blog/kubernetes-secrets) are used to inject sensitive data into your cluster such as API keys, certificates, and other kinds of credential. They can be supplied to Pods as environment variables or files mounted into a volume.
 
-![[20250117110529.png]]
+![Kub3](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250117110529.png)
 
 [ConfigMaps](https://spacelift.io/blog/kubernetes-configmap) are a similar concept for non-sensitive information. These objects should store any general settings your app requires.
 
-![[20250117110330.png]]
+![Kub4](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250117110330.png)
 
 ### [[Volumes]]
 
 ### Deployment and Stateful Set
 
-![[20250120134924.png]]
+![Kub20250120134924](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250120134924.png)
 
-![[20250120135117.png]]
+![Kub20250120135117](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250120135117.png)
 
 ### StatefulSet
 
-![[20250120135232.png]]
+![Kub20250120135232](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250120135232.png)
 
-![[20250120135329.png]]
+![Kub20250120135329](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250120135329.png)
 
-![[20250120135919.png]]
+![Kub20250120135919](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250120135919.png)
 
 ### Worker machine in K8s cluster
 
-![[20250120142331.png]]
+![Kub20250120142331](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250120142331.png)
 
-![[20250120142957.png]]
+![Kub20250120142957](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250120142957.png)
 
-![[20250120143036.png]]
+![Kub20250120143036](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250120143036.png)
 
-![[20250120143226.png]]
+![Kub20250120143226](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250120143226.png)
 
-![[20250120143312.png]]
+![Kub20250120143312](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250120143312.png)
 
 
 There are three processes must be installed on every node.

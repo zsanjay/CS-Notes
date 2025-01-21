@@ -62,7 +62,7 @@ kubectl create -h
 
 There is no command to create pods instead we create deployment which is the abstraction over Pods.
 
-![[20250121140214.png]]
+![kub20250121140214](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250121140214.png)
 
 6. Create Deployment of nginx
 
@@ -99,7 +99,7 @@ NAME                    DESIRED   CURRENT   READY   AGE
 nginx-depl-68c944fcbc   1         1         1       4m4s
 ```
 
-![[20250121141005.png]]
+![kub20250121141005](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250121141005.png)
 
 #### Pod name consists of three things:
 
@@ -110,7 +110,7 @@ nginx-depl-68c944fcbc   1         1         1       4m4s
 Format - deployment-replicaset-pod
 Example. : nginx-depl-68c944fcbc-xzjs9
 
-![[20250121141544.png]]
+![kub20250121141544](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250121141544.png)
 
 Everything below the deployment should be managed by kubernetes.
 
@@ -327,9 +327,11 @@ nginx-deployment-7f65fcf556   2         2         2       10m
 
 ### Summary
 
-![[20250121150938.png]]
+![kub20250121150938](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250121150938.png)
 
-![[20250121151026.png]]
+
+![kub20250121151026](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250121151026.png)
+
 ### References
 
 https://medium.com/@seohee.sophie.kwon/how-to-run-a-minikube-on-apple-silicon-m1-8373c248d669

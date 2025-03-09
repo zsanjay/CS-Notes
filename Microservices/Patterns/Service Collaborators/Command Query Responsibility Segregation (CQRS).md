@@ -16,9 +16,8 @@ Define a view database, which is a read-only ‘replica’ that is designed spec
 ## Examples
 
 - My book’s FTGO example application has the [`Order History Service`](https://github.com/microservices-patterns/ftgo-application#chapter-7-implementing-queries-in-a-microservice-architecture), which implements this pattern.
-    
+
 - There are [several Eventuate-based example applications](http://eventuate.io/exampleapps.html) that illustrate how to use this pattern.
-    
 
 ## Resulting context
 

@@ -3,7 +3,6 @@ Programming is powerful as it enables us to execute different code based on cond
 This is what enables us to provide dynamic and personalized applications to end users.
 
 The fundamental programming concept that enables this is conditional statements.
-
 ###### More specifically, if-else statements.
 
 ```js

@@ -207,7 +207,7 @@ So if a value is null or undefined, then we can supply a default value.
 
 ```js
 let doesValueExist = null;
-const result = doesValueExist ?? false;
+const result = doesValueExist ?? false; // false
 
 // So the ?? operator is syntactic sugar for...
 const resultOfExpression = (a !== null && a !== undefined) ? a : false;

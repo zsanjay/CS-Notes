@@ -164,7 +164,6 @@ export default function TodoList() {
 ```
 
 You can also move this expression into a separate function like `getImageUrl` below:
-
 #### App.js
 
 ```jsx

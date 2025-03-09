@@ -42,7 +42,6 @@ From the example app, we can construct the above render tree.
 The tree is composed of nodes, each of which represents a component. `App`, `FancyText`, `Copyright`, to name a few, are all nodes in our tree.
 
 The root node in a React render tree is the [root component](https://react.dev/learn/importing-and-exporting-components#the-root-component-file) of the app. In this case, the root component is `App` and it is the first component React renders. Each arrow in the tree points from a parent component to a child component.
-
 #### Where are the HTML tags in the render tree? 
 
 You’ll notice in the above render tree, there is no mention of the HTML tags that each component renders. This is because the render tree is only composed of React [components](https://react.dev/learn/your-first-component#components-ui-building-blocks).
@@ -54,7 +53,6 @@ These platform UI primitives are not a part of React. React render trees can pro
 A render tree represents a single render pass of a React application. With [conditional rendering](https://react.dev/learn/conditional-rendering), a parent component may render different children depending on the data passed.
 
 We can update the app to conditionally render either an inspirational quote or color.
-
 ##### InspirationGenerator.js
 
 ```jsx

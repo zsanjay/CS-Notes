@@ -156,7 +156,6 @@ const listItems = people.map(person =>
 ```
 
 Fragments disappear from the DOM, so this will produce a flat list of `<h1>`, `<p>`, `<h1>`, `<p>`, and so on.
-
 ### Challenges
 
 #### Splitting a list in two

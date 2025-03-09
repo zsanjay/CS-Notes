@@ -1,5 +1,4 @@
 State can hold any kind of JavaScript value, including objects. But you shouldn't change objects that you hold in the React state directly. Instead, when you want to update an object, you need to create a new one (or make a copy of an existing one), and then set the state to use that copy.
-
 ### What's a mutation?
 
 You can store any kind of JavaScript value in state.
@@ -127,7 +126,6 @@ setPosition({
 ```
 
 Mutation is only a problem when you change _existing_ objects that are already in state. Mutating an object you’ve just created is okay because _no other code references it yet._ Changing it isn’t going to accidentally impact something that depends on it. This is called a “local mutation”. You can even do local mutation [while rendering.](https://react.dev/learn/keeping-components-pure#local-mutation-your-components-little-secret) Very convenient and completely okay!
-
 ### Copying objects with the spread syntax.
 
 In the previous example, the `position` object is always created fresh from the current cursor position. But often, you will want to include existing data as a part of the new object you're creating. For example, you may want to update only one field in a form, but keep the previous values of all other fields.
@@ -222,7 +220,6 @@ export default function Form() {
 ```
 
 Note that the `...` spread syntax is “shallow”—it only copies things one level deep. This makes it fast, but it also means that if you want to update a nested property, you’ll have to use it more than once.
-
 #### Using a single event handler for multiple fields.
 
 You can also use the `[` and `]` braces inside your object definition to specify a property with a dynamic name. Here is the same example, but with a single event handler instead of three different ones:
@@ -476,7 +473,6 @@ export default function Form() {
 ```
 
 Notice how much more concise the event handlers have become. You can mix and match `useState` and `useImmer` in a single component as much as you like. Immer is a great way to keep the update handlers concise, especially if there’s nesting in your state, and copying objects leads to repetitive code.
-
 #### Why is mutating state not recommended in React? 
 
 There are a few reasons:

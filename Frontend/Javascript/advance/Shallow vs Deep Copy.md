@@ -1,4 +1,3 @@
-
 #### Foundational Knowledge for Writing Pure Functions
 
 #### Javascript Data Types
@@ -105,7 +104,7 @@ console.log(tArray === zArray); // false
 tArray.push(11);
 
 console.log(zArray); // [1, 2, 3, 10]
-console.log(tArray); // [1, 2, 3, 10. 11]
+console.log(tArray); // [1, 2, 3, 10, 11]
 ```
 
 But if there are nested arrays or objects...
@@ -173,7 +172,6 @@ const deepClone = (obj) => {
 }
 
   
-
 // Deep cloning array
 const scoreArray = [44, 23, 12, 14];
 const newScoreArray = deepClone(scoreArray);

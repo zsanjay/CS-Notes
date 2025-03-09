@@ -653,7 +653,6 @@ const { guitar : myVariable, bass : myBass} = newBand;
 console.log(myVariable);
 console.log(myBass);
 
-
 const { vocals, guitar, bass, drums} = newBand;
 console.log(guitar);
 console.log(vocals);

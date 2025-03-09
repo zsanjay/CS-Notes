@@ -41,7 +41,7 @@ sum(1,2,3); // 6
 
 As you can see, this is a function with full arguments. Let’s create a curried version of the function and see how we would call the same function (and get the same result) in a [series of calls](https://builtin.com/software-engineering-perspectives/javascript-call-stack):
 
-```
+```js
 function sum(a) {
     return (b) => {
         return (c) => {
@@ -73,27 +73,19 @@ const buildSandwich = (ingredient1) => {
 	}
 }
 
-
 const mySandwich = buildSandwich("Becon")("Lettuce")("Tomato")
-
 console.log(mySandwich);
 
-
 // It works but thats getting ugly and nested the further we go
-
 // Let's refector:
-
 const buildSammy = ingred1 => ingred2 => ingred3 =>
-
 `${ingred1}, ${ingred2}, ${ingred3}`;
 
   
 
 const mySammy = buildSammy("turkey")("cheese")("bread");
-
 console.log(mySammy);
 
-  
 
 // Another Example of a curried function
 const multiply = (x, y) => x * y;
@@ -106,24 +98,19 @@ console.log(curriedMultiply(2)(3));
   
 // Partially applied functions are a common use of currying
 const timesTen = curriedMultiply(10);
-
 console.log(timesTen);
 console.log(timesTen(8));
 
-  
 // Another example
 const updateElemText = id => content => document.querySelector(`#${id}`).textContent = content;
 
 const updateHeaderText = updateElemText('header');
-
 updateHeaderText("Hello Sanjay!");
 
   
 
 // Decorator Pattern
-
 // Another common use of currying is function composition
-
 // Allows calling small functions in a specific order
 
 const addCustomer = fn => (...args) => {
@@ -140,13 +127,10 @@ let completeOrder = (...args) => {
 	console.log(`Order #${[...args].toString()} completed.`);
 }
 
-
 completeOrder = (processOrder(completeOrder));
-
 console.log(completeOrder);
 
 completeOrder = (addCustomer(completeOrder));
-
 console.log(completeOrder);
 
 completeOrder("1000");
@@ -171,10 +155,8 @@ const curry = (fn) => {
 	};
 }
 
-
 const sum = (x , y , z) => x + y + z;
 console.log(curry(sum));
-
 
 const currySum = curry(sum);
 console.log(currySum(10)(20)(30));

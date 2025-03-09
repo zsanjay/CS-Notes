@@ -7,6 +7,13 @@
 
 ### Non Functional Requirements
 
+Think about the things which are important:
+
+1. Scalable
+2. Available
+3. Performance
+4. If persistence is required, then durability.
+
 Questions to clarify?
 
 How many requests system can handle? - Scalable?
@@ -125,6 +132,7 @@ public class LRUCache {
 		if(head == null) {
 			head = tail = node;
 		} else {
+			// Move prev and next references you have before.
 			node.next = head;
 			head.prev = node;
 			head = node;
@@ -184,8 +192,8 @@ public class LRUCache {
 - To store more data in memory we partition data into shards. And put each shard on its own server. Every cache client knows about all cache shards. And cache clients use consistent hashing algorithm to pick a shard for storing and retrieving a particular cache key.
 
  **Let’s recall non-functional requirements we defined in the beginning of our design.**
+ 
 - We wanted to build fast, highly scalable and available distributed cache. Have we built a highly performant cache? Yes. Least recently used cache implementation uses constant time operations. Cache client picks cache server in log n time, very fast. And connection between cache client and cache server is done over TCP or UDP, also fast. So, performance is there.
-
 
 - But what about other two: scalability and availability. Scalability is also there. We can easily create more shards and have more data stored in memory. Although those of you who did data sharding in real systems know that common problem for shards is that some of them may become hot. Meaning that some shards process much more requests then their peers. Resulting in a bottleneck. And adding more cache servers may not be very effective. With consistent hashing in place, a new cache server will further split some shard into two smaller shards. But we do not want to split any shard, we need to split a very concrete one.
 

@@ -50,7 +50,6 @@ The ref points to a number, but, like [state](https://react.dev/learn/state-a-co
 Note that **the component doesn’t re-render with every increment.** Like state, refs are retained by React between re-renders. However, setting state re-renders a component. Changing a ref does not!
 
  For example, you can use refs to store [timeout IDs](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout#return_value), [DOM elements](https://developer.mozilla.org/en-US/docs/Web/API/Element), and other objects that don’t impact the component’s rendering output.
-
 ### Example: building a stopwatch.
 
 You can combine refs and state in a single component. For example, let’s make a stopwatch that the user can start or stop by pressing a button. In order to display how much time has passed since the user pressed “Start”, you will need to keep track of when the Start button was pressed and what the current time is. **This information is used for rendering, so you’ll keep it in state:**
@@ -196,7 +195,6 @@ export default function Counter() {
 ```
 
 This is why reading `ref.current` during render leads to unreliable code. If you need that, use state instead.
-
 #### How does useRef work inside? 
 
 Although both `useState` and `useRef` are provided by React, in principle `useRef` could be implemented _on top of_ `useState`. You can imagine that inside of React, `useRef` is implemented like this:
@@ -222,7 +220,6 @@ Typically, you will use a ref when your component needs to “step outside” Re
 - Storing other objects that aren’t necessary to calculate the JSX.
 
 If your component needs to store some value, but it doesn’t impact the rendering logic, choose refs.
-
 ### Best practices for refs
 
 Following these principles will make your components more predictable:
@@ -240,7 +237,6 @@ console.log(ref.current); // 5
 This is because **the ref itself is a regular JavaScript object,** and so it behaves like one.
 
 You also don’t need to worry about [avoiding mutation](https://react.dev/learn/updating-objects-in-state) when you work with a ref. As long as the object you’re mutating isn’t used for rendering, React doesn’t care what you do with the ref or its contents.
-
 ### Refs and the DOM
 
 You can point a ref to any value. However, the most common use case for a ref is to access a DOM element. For example, this is handy if you want to focus an input programmatically. When you pass a ref to a `ref` attribute in JSX, like `<div ref={myRef}>`, React will put the corresponding DOM element into `myRef.current`. Once the element is removed from the DOM, React will update `myRef.current` to be `null`. You can read more about this in [Manipulating the DOM with Refs.](https://react.dev/learn/manipulating-the-dom-with-refs)
@@ -253,7 +249,6 @@ You can point a ref to any value. However, the most common use case for a ref is
 - Like state, refs let you retain information between re-renders of a component.
 - Unlike state, setting the ref’s `current` value does not trigger a re-render.
 - Don’t read or write `ref.current` during rendering. This makes your component hard to predict.
-
 
 ### Challenges
 
@@ -303,7 +298,6 @@ export default function Chat() {
   );
 }
 ```
-
 #### 2. Fix a component failing to re-render
 
 This button is supposed to toggle between showing “On” and “Off”. However, it always shows “Off”. What is wrong with this code? Fix it.

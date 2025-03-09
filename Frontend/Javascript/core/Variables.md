@@ -146,7 +146,6 @@ The null data type, means value unknown or empty.
 ```js
 favoriteFruit = null;
 ```
-
 #### Symbol
 
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol
@@ -241,7 +240,6 @@ firstName = true;
 console.log(typeof firstName); // boolean
 ```
 
-
 #### Objects
 
 Objects are reference types. (They are not a primitive value). Objects represent nouns. (person, place, or thing). They contain state or behavior, allowing you to group together related values.
@@ -269,7 +267,6 @@ You can also reassign the value.
 course.name = 'JavaScript Fundamentals';
 console.log(course.name);
 ```
-
 
 You can also access properties through bracket notation. You would typically use dot notation however bracket notation is used if you don't know the exact key/property you want to access until runtime.
 
@@ -335,6 +332,7 @@ console.log(productColors.length);
 Functions are the building blocks of our applications. It allows us to group together statements to perform a task or calculate a value.
 
 Function declaration syntax
+
 ```js
 function sayHi() {
     console.log('Hi!');
@@ -342,6 +340,7 @@ function sayHi() {
 ```
 
 Then we invoke/call the function.
+
 ```js
 sayHi();
 ```

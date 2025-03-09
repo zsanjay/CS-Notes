@@ -7,7 +7,7 @@ How to enable a service to run in multiple environments without modification?
 
 - A service must be provided with configuration data that tells it how to connect to the external/3rd party services. For example, the database network location and credentials
 - A service must run in multiple environments - dev, test, qa, staging, production - without modification and/or recompilation
-- Different environments have different instances of the external/3rd party services, e.g. QA database vs. production database, test credit card processing account vs. production credit card processing account
+- Different environments have different instances of the external/3rd party services, e.g. QA database vs. production database, test credit card processing account vs. production credit card processing account.
 
 ## Solution
 

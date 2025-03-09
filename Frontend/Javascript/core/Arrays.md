@@ -11,12 +11,10 @@ Refer to docs - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Referenc
 // Arrays
 const myArray = [];
 
-
 // add elements to an array
 myArray[0] = "Sanjay";
 myArray[1] = 1001;
 myArray[2] = false;
-
 
 // refer to an array
 console.log(myArray);
@@ -24,33 +22,26 @@ console.log(myArray);
 // Length property
 console.log(myArray.length);
 
-
 // Last element in an array
 console.log(myArray[myArray.length - 1]);
-
 
 // add an element to the end
 myArray.push("school");
 
-
 // remove an element from the end of the array
 console.log(myArray.pop());
 
-  
 // unshift - add an element in the front of the array
 const newLength = myArray.unshift(42);
 
 console.log(myArray);
 console.log(newLength);
 
-  
 // shift - remove the element from the front of the array
 const removedElement = myArray.shift();
-
   
 console.log(myArray);
 console.log(removedElement);
-
 
 // delete - don't use this because it doesn't shift the index and make position value undefined
 
@@ -64,21 +55,18 @@ console.log(myArray[1]);
 myArray.splice(1, 1);
 console.log(myArray);
 
-  
 // Replace the value of an element at index 1
 myArray.splice(1, 1, true);
 console.log(myArray);
 
-  
+1 - index, 0 - for insert and 54 - value to insert.  
 // Insert the value of an element at index 1
 myArray.splice(1, 0, 54);
 console.log(myArray);
 
-  
 myArray.splice(3, 0, 987);
 console.log(myArray);
 
-  
 
 // slice method
 const myArray2 = ["A", "B", "C", "D", "E", "F"];
@@ -86,11 +74,9 @@ const myArray2 = ["A", "B", "C", "D", "E", "F"];
 const newArray = myArray2.slice(2,5);
 console.log(newArray);
 
-
 // reverse method
 myArray2.reverse();
 console.log(myArray2);
-
 
 // join method
 const newString = myArray2.join();
@@ -186,7 +172,6 @@ This will not alter the original string, rather it will return an array.
 const courseName = 'JavaScript for Beginners';
 const parts = courseName.split(' ');
 console.log(parts);
-
 ```
 
 So an example which shows how this could be useful, consider the term, URL (Uniform Resource Locator) slug. This refers to having a descriptive path in your URL.
@@ -588,11 +573,11 @@ const firstElement = numbers.shift();
 console.log(`firstElement: ${firstElement}`); // firstElement: 1
 
 // 1st arg is the index to start from
-// 2nd arg is the number of elements to remove
+// 2nd arg is the number of elements to remove - count
+// numbers = [2, 3, 4]
 const middleElement = numbers.splice(1, 1);
 console.log(`middleElement: ${middleElement}`); // middleElement: 3
 ```
-
 #### Emptying an array
 
 If you want to clear all the elements of an array, there are different ways that you can do that.

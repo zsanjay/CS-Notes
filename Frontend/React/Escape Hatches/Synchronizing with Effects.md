@@ -167,7 +167,6 @@ export default function App() {
 ```
 
 In this example, the “external system” you synchronized to React state was the browser media API. You can use a similar approach to wrap legacy non-React code (like jQuery plugins) into declarative React components.
-
 ### Pitfall
 
 By default, Effects run after _every_ render. This is why code like this will **produce an infinite loop:**
@@ -291,6 +290,23 @@ export default function App() {
 ```
 
 The dependency array can contain multiple dependencies. React will only skip re-running the Effect if _all_ of the dependencies you specify have exactly the same values as they had during the previous render. React compares the dependency values using the [`Object.is`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is) comparison. See the [`useEffect` reference](https://react.dev/reference/react/useEffect#reference) for details.
+
+The **`Object.is()`** static method determines whether two values are [the same value](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness#same-value_equality_using_object.is).
+
+```js
+console.log(Object.is('1', 1));
+// Expected output: false
+
+console.log(Object.is(NaN, NaN));
+// Expected output: true
+
+console.log(Object.is(-0, 0));
+// Expected output: false
+
+const obj = {};
+console.log(Object.is(obj, {}));
+// Expected output: false
+```
 
 **Notice that you can’t “choose” your dependencies.** You will get a lint error if the dependencies you specified don’t match what React expects based on the code inside your Effect. This helps catch many bugs in your code. If you don’t want some code to re-run, [_edit the Effect code itself_ to not “need” that dependency.](https://react.dev/learn/lifecycle-of-reactive-effects#what-to-do-when-you-dont-want-to-re-synchronize)
 
@@ -720,7 +736,6 @@ export default function ChatRoom({ roomId }) {
 ```
 
 Let’s see what exactly happens as the user navigates around the app.
-
 #### Initial render
 
 The user visits `<ChatRoom roomId="general" />`. Let’s [mentally substitute](https://react.dev/learn/state-as-a-snapshot#rendering-takes-a-snapshot-in-time) `roomId` with `'general'`:
@@ -808,8 +823,8 @@ Finally, let’s say the user navigates away, and the `ChatRoom` component unmou
 When [Strict Mode](https://react.dev/reference/react/StrictMode) is on, 
 1. React remounts every component once after mount (state and DOM are preserved). This [helps you find Effects that need cleanup](https://react.dev/learn/synchronizing-with-effects#step-3-add-cleanup-if-needed) and exposes bugs like race conditions early. 
 2. Additionally, React will remount the Effects whenever you save a file in development. 
-Both of these behaviors are development-only.
 
+Both of these behaviors are development-only.
 ### Recap
 
 - Unlike events, Effects are caused by rendering itself rather than a particular interaction.

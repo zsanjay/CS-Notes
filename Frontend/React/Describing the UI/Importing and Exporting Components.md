@@ -1,5 +1,4 @@
 The magic of components lies in their reusability: you can create components that are composed of other components. But as you nest more and more components, it often makes sense to start splitting them into different files. This lets you keep your files easy to scan and reuse components in more places.
-
 ## The root component file - App.js
 
 In [Your First Component](https://react.dev/learn/your-first-component), you made a `Profile` component and a `Gallery` component that renders it:
@@ -92,7 +91,6 @@ import Gallery from './Gallery';
 ```
 
 Either `'./Gallery.js'` or `'./Gallery'` will work with React, though the former is closer to how [native ES Modules](https://developer.mozilla.org/docs/Web/JavaScript/Guide/Modules) work.
-
 #### Default vs named exports
 
 There are two primary ways to export values with JavaScript: default exports and named exports. So far, our examples have only used default exports. But you can use one or both of them in the same file. **A file can have no more than one _default_ export, but it can have as many _named_ exports as you like.**

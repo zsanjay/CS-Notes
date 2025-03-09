@@ -10,7 +10,6 @@ privateCounter();
 privateCounter();
 privateCounter();
 
-
 const credits = ((num) => {
 	let credits = num;
 	console.log(`initial credits value: ${credits}`);
@@ -24,7 +23,6 @@ const credits = ((num) => {
 	}
 })(3);
 
-  
 credits();
 credits();
 credits();

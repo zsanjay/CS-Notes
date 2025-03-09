@@ -27,12 +27,13 @@ The Two-Phase Commit protocol involves two phases: the **prepare phase** and the
     
     - `Yes` (indicating it’s ready to commit), or
     - `No` (indicating it cannot commit due to some issue, such as data constraints, errors, or other issues).
+
 3. **Phase 2 (Commit/Abort)**:
     
     - If all participants respond with `Yes`, the coordinator sends a `commit` message to all participants.
     - If any participant responds with `No`, the coordinator sends an `abort` message to all participants.
+
 4. **Finalization**: Each participant either commits or aborts the transaction based on the final decision from the coordinator.
-    
 
 ### Diagram of Two-Phase Commit:
 
@@ -70,7 +71,7 @@ Coordinator                    Participant 1                    Participant 2
 
 - **Database Transactions**: When an application needs to ensure that a transaction involving multiple databases or systems either commits or aborts entirely (e.g., financial transactions, e-commerce orders, etc.).
     
-- **Distributed Systems**: In systems where multiple services or microservices need to maintain consistency and ensure that all operations either complete successfully or are rolled back.
+- **Distributed Systems**: In systems where multiple services or micro services need to maintain consistency and ensure that all operations either complete successfully or are rolled back.
 
 ### Alternatives and Improvements:
 

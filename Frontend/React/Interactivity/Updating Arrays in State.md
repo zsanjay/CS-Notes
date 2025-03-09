@@ -1,5 +1,4 @@
 Arrays are mutable in JavaScript, but you should treat them as immutable when you store them in state. Just like with objects, when you want to update an array stored in state, you need to create a new one(or make a copy of an existing one), and then set state to use the new array.
-
 ### Updating arrays without mutation
 
 In JavaScript, arrays are just another kind of object. **Like with objects, you should treat arrays in React state as read-only.** This means that you shouldn't reassign items inside an array like `arr[0] = 'bird'`, and you also shouldn't use methods that mutate the array, such as `push()` and `pop().`
@@ -123,7 +122,6 @@ export default function List() {
 ```
 
 Here, `artists.filter(a => a.id !== artist.id)` means “create an array that consists of those `artists` whose IDs are different from `artist.id`”. In other words, each artist’s “Delete” button will filter _that_ artist out of the array, and then request a re-render with the resulting array. Note that `filter` does not modify the original array.
-
 
 ### Transforming an array
 
@@ -338,8 +336,7 @@ nextList[0].seen = true; // Problem: mutates list[0]
 setList(nextList);
 ```
 
-Although `nextList` and `list` are two different arrays, **`nextList[0]` and `list[0]` point to the same object.** So by changing `nextList[0].seen`, you are also changing `list[0].seen`. This is a state mutation, which you should avoid! You can solve this issue in a similar way to [updating nested JavaScript objects](https://react.dev/learn/updating-objects-in-state#updating-a-nested-object)—by copying individual items you want to change instead of mutating them. 
-
+Although `nextList` and `list` are two different arrays, **`nextList[0]` and `list[0]` point to the same object.** So by changing `nextList[0].seen`, you are also changing `list[0].seen`. This is a state mutation, which you should avoid! You can solve this issue in a similar way to [updating nested JavaScript objects](https://react.dev/learn/updating-objects-in-state#updating-a-nested-object)—by copying individual items you want to change instead of mutating them.
 ### Updating objects inside arrays
 
 Objects are not *really* located "inside" arrays. They might appear to be "inside" in code, but each object in an array is a separate value, to which the array "points". This is why you need to be careful when changing nested fields like `list[0].` Another person's artwork list may point to the same element of the array!
@@ -454,7 +451,6 @@ setMyList(myList.map(artwork => {
 Here, `...` is the object spread syntax used to [create a copy of an object.](https://react.dev/learn/updating-objects-in-state#copying-objects-with-the-spread-syntax)
 
 In general, **you should only mutate objects that you have just created.** If you were inserting a _new_ artwork, you could mutate it, but if you’re dealing with something that’s already in state, you need to make a copy.
-
 ### Write concise update logic with Immer.
 
 Updating nested arrays without mutation can get a little bit repetitive. **Just as with objects:**
@@ -555,7 +551,6 @@ This is because you're not mutating the *original* state, but you're mutating a 
 to the content of the `draft`.
 
 Behind the scenes, Immer always constructs the next state from scratch according to the changes that you've done to the `draft`. This keeps your event handlers very concise without ever mutating state.
-
 ### Recap
 
 - You can put arrays into state, but you can’t change them.

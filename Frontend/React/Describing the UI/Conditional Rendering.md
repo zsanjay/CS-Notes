@@ -128,7 +128,6 @@ For example, a common mistake is to write code like `messageCount && <p>New mess
 
 To fix it, make the left side a boolean: `messageCount > 0 && <p>New messages</p>`.
 
-
 #### Conditionally assigning JSX to a variable 
 
 When the shortcuts get in the way of writing plain code, try using an `if` statement and a variable. You can reassign variables defined with [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let), so start by providing the default content you want to display, the name:
@@ -191,7 +190,6 @@ function Item({ name, importance }) {
   );
 }
 ```
-
 #### Refactor a series of `? :` to `if` and variables
 
 ```jsx

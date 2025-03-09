@@ -91,8 +91,8 @@ function SaveButton() {
 
 	function handleSaveClick() {  
 		console.log('✅ Progress saved');  
-	}  
-  
+	}
+	  
 	return (  
 		<button disabled={!isOnline} onClick={handleSaveClick}>  
 		{isOnline ? 'Save progress' : 'Reconnecting...'}  
@@ -166,7 +166,6 @@ Verify that switching the network on and off updates both components.
 Now your components don’t have as much repetitive logic. **More importantly, the code inside them describes _what they want to do_ (use the online status!) rather than _how to do it_ (by subscribing to the browser events).**
 
 When you extract logic into custom Hooks, you can hide the gnarly details of how you deal with some external system or a browser API. The code of your components expresses your intent, not the implementation.
-
 ### Hook names always start with `use`
 
 React applications are built from components. Components are built from Hooks, whether built-in or custom. You’ll likely often use custom Hooks created by others, but occasionally you might write one yourself!
@@ -177,7 +176,6 @@ You must follow these naming conventions:
 2. **Hook names must start with `use` followed by a capital letter,** like [`useState`](https://react.dev/reference/react/useState) (built-in) or `useOnlineStatus` (custom, like earlier on the page). Hooks may return arbitrary values.
 
 This convention guarantees that you can always look at a component and know where its state, Effects, and other React features might “hide”. For example, if you see a `getColor()` function call inside your component, you can be sure that it can’t possibly contain React state inside because its name doesn’t start with `use`. However, a function call like `useOnlineStatus()` will most likely contain calls to other Hooks inside!
-
 ### Note:
 
 If your linter is [configured for React,](https://react.dev/learn/editor-setup#linting) it will enforce this naming convention. Scroll up to the sandbox above and rename `useOnlineStatus` to `getOnlineStatus`. Notice that the linter won’t allow you to call `useState` or `useEffect` inside of it anymore. Only Hooks and components can call other Hooks!
@@ -187,7 +185,6 @@ If your linter is [configured for React,](https://react.dev/learn/editor-setup#l
 
 4:35 - React Hook "useState" is called in function "getOnlineStatus" that is neither a React function component nor a custom React Hook function. React component names must start with an uppercase letter. React Hook names must start with the word "use".
 ```
-
 #### Should all functions called during rendering start with the use prefix?
 
 No. Functions that don’t _call_ Hooks don’t need to _be_ Hooks.
@@ -240,7 +237,6 @@ function useAuth() {
 ```
 
 Then components won’t be able to call it conditionally. This will become important when you actually add Hook calls inside. If you don’t plan to use Hooks inside it (now or later), don’t make it a Hook.
-
 ### Custom Hooks let you share stateful logic, not state itself
 
 In the earlier example, when you turned the network on and off, both components updated together. However, it’s wrong to think that a single `isOnline` state variable is shared between them. Look at this code:
@@ -381,7 +377,6 @@ This is why it works like declaring two separate state variables!
 **Custom Hooks let you share _stateful logic_ but not _state itself._ Each call to a Hook is completely independent from every other call to the same Hook.** This is why the two sandboxes above are completely equivalent. If you’d like, scroll back up and compare them. The behavior before and after extracting a custom Hook is identical.
 
 When you need to share the state itself between multiple components, [lift it up and pass it down](https://react.dev/learn/sharing-state-between-components) instead.
-
 ### Passing reactive values between Hooks
 
 The code inside your custom Hooks will re-run during every re-render of your component. This is why, like components, custom Hooks [need to be pure.](https://react.dev/learn/keeping-components-pure) Think of custom Hooks’ code as part of your component’s body!
@@ -496,6 +491,8 @@ Every time your `ChatRoom` component re-renders, it passes the latest `roomId` a
 
 ### Passing event handlers to custom Hooks
 
+Refer - https://www.youtube.com/watch?v=NZJUEzn10FI
+
 As you start using `useChatRoom` in more components, you might want to let components customize its behavior. For example, currently, the logic for what to do when a message arrives is hardcoded inside the Hook:
 
 ```jsx
@@ -535,11 +532,11 @@ This will work, but there’s one more improvement you can do when your custom H
 
 Adding a dependency on `onReceiveMessage` is not ideal because it will cause the chat to re-connect every time the component re-renders. [Wrap this event handler into an Effect Event to remove it from the dependencies:](https://react.dev/learn/removing-effect-dependencies#wrapping-an-event-handler-from-the-props)
 
+The newest React hook, useEffectEvent, is a really unique and interesting hook that make working with useEffect much easier. This is because it allows you to use variables, state, and props in your useEffect without having to declare them as dependencies for your useEffect.
+
 ```jsx
 import { useEffect, useEffectEvent } from 'react';  
-
 // ...  
-
 export function useChatRoom({ serverUrl, roomId, onReceiveMessage }) {  
 	const onMessage = useEffectEvent(onReceiveMessage);  
 
@@ -657,7 +654,6 @@ When you synchronize with an external system, your custom Hook name may be more 
 - ✅ `useIntersectionObserver(ref, options)`
 
 **Keep custom Hooks focused on concrete high-level use cases.**
-
 
 Avoid creating and using custom “lifecycle” Hooks that act as alternatives and convenience wrappers for the `useEffect` API itself:
 
@@ -778,7 +774,6 @@ export function useOnlineStatus() {
   );
 }
 ```
-
 
 Notice how **you didn’t need to change any of the components** to make this migration:
 
@@ -964,14 +959,12 @@ useEffect(() => {
 Do the logs match what you expect to happen? If some of your Effects seem to re-synchronize unnecessarily, can you guess which dependency is causing that to happen? Is there some way to [remove that dependency](https://react.dev/learn/removing-effect-dependencies) from your Effect?
 
 After you fix the issue, you should expect the page background to update every two seconds.
-
 ### Solution
 
 Inside `useInterval`, wrap the tick callback into an Effect Event, as you did [earlier on this page.](https://react.dev/learn/reusing-logic-with-custom-hooks#passing-event-handlers-to-custom-hooks)
 This will allow you to omit `onTick` from dependencies of your Effect. The Effect won’t re-synchronize on every re-render of the component, so the page background color change interval won’t get reset every second before it has a chance to fire.
 
 With this change, both intervals work as expected and don’t interfere with each other:
-
 ##### App.js
 
 ```jsx
@@ -1023,8 +1016,7 @@ export function useCounter(delay) {
   return count;
 }
 ```
-
-#### 5. Implement a staggering movement
+#### 5. Implement a staggering movement.
 
 In this example, the `usePointerPosition()` Hook tracks the current pointer position. Try moving your cursor or your finger over the preview area and see the red dot follow your movement. Its position is saved in the `pos1` variable.
 
@@ -1033,7 +1025,6 @@ In fact, there are five (!) different red dots being rendered. You don’t see t
 You need to implement the `useDelayedValue` custom Hook. Its current implementation returns the `value` provided to it. Instead, you want to return the value back from `delay` milliseconds ago. You might need some state and an Effect to do this.
 
 After you implement `useDelayedValue`, you should see the dots move following one another.
-
 ##### App.js
 
 ```jsx

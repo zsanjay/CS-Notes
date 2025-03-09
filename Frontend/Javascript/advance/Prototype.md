@@ -77,15 +77,15 @@ Object.setPrototypeOf(luxuryCar , car);
 
 luxuryCar.seatMaterial = "leather";
 
-console.log(luxuryCar);
-console.log(luxuryCar.doors);
-console.log(car);
+console.log(luxuryCar); // { seats: 'leather' }
+console.log(luxuryCar.doors); // 2
+console.log(car); // { doors: 2, seats: 'vinyl', seatMaterial: [Getter/Setter] }
 
 // Walking up the chain - props and methods are not copied
-console.log(luxuryCar.valueOf());
+console.log(luxuryCar.valueOf()); // { seats: 'leather' }
 
 // Getting the Keys of an object
-console.log(Object.keys(luxuryCar));
+console.log(Object.keys(luxuryCar)); // [ 'seats' ]
 
 // loop through each object key
 Object.keys(luxuryCar).forEach(key => {

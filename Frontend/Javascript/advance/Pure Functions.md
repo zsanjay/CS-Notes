@@ -13,14 +13,12 @@ A function must pass two tests to be considered “pure”:
 2. No side-effects
 
 Let’s zoom in on each one.
-
 ### 1. Same Input => Same Output
 
 Compare this:
 
 ```js
 const add = (x, y) => x + y;
-
 add(2, 4); // 6
 ```
 
@@ -69,9 +67,7 @@ This test itself is a checklist. A few examples of side-effects are
 5. Querying the DOM
 
 Basically any work a function performs that isn’t related to calculating the final output.
-
 Here’s an impure function with a side-effect.
-
 #### Not So Bad
 
 ```js
@@ -163,7 +159,6 @@ console.log({
 Mutating your input can be dangerous, but mutating a copy of it is no problem. Our end result is still a testable, predictable function that works no matter where/when you call it.
 
 The mutation’s limited to that small scope and you’re still returning a value.
-
 ### Deep-Cloning Objects
 
 Heads up! Using the spread operator `...` creates a _shallow_ copy of an object. Shallow copies aren’t safe from nested mutations.
@@ -315,7 +310,6 @@ console.log(myArray);
 // No return means you definitely do not have a pure function.
 
 // These common Higher Order Functions are Pure Functions:
-
 const oneToFive = [1, 2, 3, 4, 5];
 
 const oddToFive = oneToFive.filter(elem => elem % 2 !== 0);
@@ -330,7 +324,6 @@ const summed = oneToFive.reduce((acc, elem) => acc + elem);
 console.log(summed);
 
 console.log(oneToFive);
-
 // The goal: Write small, pure functions when you can for code that is clean, easy to test, and easy to debug.
 ```
 

@@ -51,7 +51,7 @@ course.start();
 
 In a function, (meaning not a method defined for an object), the this keyword will reference the global object.
 
-In browsers it's the window object and in Node.js it's the global object.
+In browsers it's the window object and in the Node.js it's the global object.
 
 ```js
 function startVideo() {

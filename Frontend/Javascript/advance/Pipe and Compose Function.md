@@ -46,6 +46,7 @@ get6Characters('Buckethead');
 ```
 
 Resulting in:
+
 ```js
 get6Characters(uppercase(getName({ name: 'Buckethead' })));
 // 'BUCKET';
@@ -201,7 +202,6 @@ console.log(pipeResult2);
 /* This is a "pointer free" style where you do not see the unary parameter
 passed between each function */
 
-  
 // example with a 2nd parameter
 const divideBy = (divisor, num) => num / divisor;
 
@@ -248,7 +248,6 @@ console.log(wordCount(lorem));
 const egbdf = "Every good boy does fine.";
 console.log(wordCount(egbdf));
 
-
 // Combine Processes: Check for palindrome
 const pal1 = "taco cat";
 const pal2 = "UFO tofu";
@@ -283,7 +282,6 @@ console.log(fwd(pal3) === rev(pal3));
 
 // 1) Clone the object before an impure function mutates it
 const scoreObj = { home : 0, away : 0};
-
 const shallowClone = (obj) => Array.isArray(obj) ? [...obj] : { ...obj };
 
 const incrementHome = (obj) => {
@@ -359,7 +357,7 @@ console.log(scoreObj);
 // Negatives: Non-unary functions in your pipe / compose chain
 ```
 
-### What about compose()?
+### What about compose() ?
 
 It’s just `pipe` in the other direction.
 
@@ -386,48 +384,27 @@ compose = (...fns) => (x) => fns.reduceRight((v, f) => f(v), x);
 
 ```js
 // Functional Programming
-
-  
-
 // Often uses pipe and compose = higher order functions
 
-  
-
 /* A higher order function is any function which takes a function as an argument,
-
 returns a function, or both. */
 
-  
-
 // Here's how a "compose" function works:
-
-  
-
 // Start with small unary (one parameter) functions
 
 const add2 = (x) => x + 2;
-
 const subtract1 = (x) => x - 1;
-
 const multiplyBy5 = (x) => x * 5;
 
-  
 
 // Notice how the functions execute from inside to outside & right to left
-
 const result = multiplyBy5(subtract1(add2(4)));
-
 console.log(result);
 
   
 
 // The above is NOT a compose function.
-
-  
-
 // Making our own compose and pipe functions
-
-  
 
 /* Note: Ramda.js and lodash libraries have their own built-in compose and pipe functions.
 
@@ -445,14 +422,9 @@ those values, accumulating a single result. */
 
 above, we need reduceRight... */
 
-  
-
 const compose = (...fns) => val => fns.reduceRight((prev, fn) => fn(prev), val);
 
-  
-
 const compResult = compose(multiplyBy5, subtract1, add2)(4);
-
 console.log(compResult);
 ```
 

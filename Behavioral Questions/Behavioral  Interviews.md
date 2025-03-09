@@ -79,7 +79,7 @@ I am excited about the opportunity to bring my diverse skill set, passion for te
 
 - **Task:** My task was to resolve this conflict in a way that would not only maintain team harmony but also ensure the best technical solution was chosen for our project.
 
-- **Action:** I initiated a meeting with the team lead to understand her perspective and concerns. I listened attentively to her reasoning and explained my viewpoint and the benefits of my approach, including better maintainability and faster implementation time. Realizing that we were both not fully aligned, I suggested we present both approaches to the team and gather input. During the team meeting, we discussed the pros and cons of each method in detail. I made sure to keep the discussion focused on the technical merits of each approach rather than personal preferences.
+- **Action:** I initiated a meeting with the team lead to understand her perspective and concerns. I listened attentively to his reasoning and explained my viewpoint and the benefits of my approach, including better maintainability and faster implementation time. Realizing that we were both not fully aligned, I suggested we present both approaches to the team and gather input. During the team meeting, we discussed the pros and cons of each method in detail. I made sure to keep the discussion focused on the technical merits of each approach rather than personal preferences.
 
 - **Result:** The team ultimately decided that a combination of both our approaches was the best way forward. This hybrid solution combined the robustness of team leads method with the simplicity of mine. This resolution not only led to the successful completion of the feature but also improved my professional relationship with the team lead. We both appreciated each other's expertise and commitment to the project. This experience taught me the value of collaboration, open communication, and the importance of considering different perspectives in problem-solving.
 
@@ -155,7 +155,7 @@ I am excited about the opportunity to bring my diverse skill set, passion for te
 
 #### 11. Describe a time when you had to give someone difficult feedback. How did you handle it?
 
-- **Situation:** While working as a senior software engineer with Ernst and Young, I was mentoring a junior developer. He was enthusiastic and talented, but I noticed that his code often lacked proper documentation, which is crucial for our team's workflow and long-term project maintenance.
+- **Situation:** While working as a senior software engineer with Ernst and Young, I was mentoring a junior developer. He was enthusiastic and talented, but I noticed that his code **often lacked proper documentation**, which is crucial for our team's workflow and long-term project maintenance.
 
 - **Task:** My task was to provide him with this critical feedback in a way that was constructive and encouraging, without discouraging his enthusiasm and confidence.
 
@@ -167,7 +167,7 @@ I am excited about the opportunity to bring my diverse skill set, passion for te
 
 - **Situation:** In my previous role as a software engineer with inventum technologies, our team was often juggling multiple projects like IPDR and Unify simultaneously. There was one particular week where the demands peaked unexpectedly.
 
-- **Task:** I was in the middle of developing a new feature for our main product, but at the same time, a critical bug was reported in another project that I had previously worked on. This bug was causing significant issues for one of our key clients. My task was to address both the urgent bug fix and the ongoing development work without compromising the quality and timeline of either.
+- **Task:** I was in the middle of developing a new feature for our main product, but at the same time, **a critical bug was reported in another project that I had previously worked on**. This bug was causing significant issues for one of our key clients. My task was to address both the urgent bug fix and the ongoing development work without compromising the quality and timeline of either.
 
 - **Action:** I quickly assessed the situation and prioritized the tasks. Resolving the critical bug was the immediate priority due to its impact on the client. I communicated this to my team lead and requested a brief pause on the feature development. I then focused on identifying and fixing the bug. After dedicating a few hours to this, I was able to deploy a patch to resolve the issue. Once the urgent matter was handled, I shifted my focus back to the feature development. To manage my time effectively, I broke down the remaining development work into smaller tasks and set specific mini-deadlines. I also stayed a couple of extra hours for the next few days to ensure I was back on track with the feature development.
 
@@ -182,7 +182,6 @@ I am excited about the opportunity to bring my diverse skill set, passion for te
 - **Action:** To address this, I implemented the client side caching of static contents before the launch. I collaborated with the testing team to design and implement these tests, which simulated varying levels of user traffic. This allowed us to identify bottlenecks in the system's ability to handle high concurrent user loads. Based on the test results, I led a team effort to optimize database queries, implement efficient caching mechanisms, and utilize load balancing solutions. Additionally, I advocated for the integration of an auto-scaling solution for our cloud infrastructure, ensuring that the application could dynamically adjust to traffic demands.
 
 - **Result:** These proactive measures paid off when the application launched. The launch campaign was highly successful, leading to a rapid influx of users. Thanks to the scalability improvements, the application handled the surge in traffic flawlessly, with no significant performance issues. This success not only boosted the client’s confidence in our company but also led to recognition from our senior management for the foresight and technical proficiency demonstrated by our team. This experience reinforced the importance of anticipating potential challenges and proactively implementing solutions in software development.
-
 
 #### 14. Describe a situation where you had to deal with a difficult customer.
 
@@ -318,7 +317,7 @@ I am excited about the opportunity to bring my diverse skill set, passion for te
 ### 27. How do you stay up-to-date with the latest technological advancements?
 
 - As a software engineer, I believe it's essential to stay current with the latest technological trends and advancements to ensure I'm bringing the most efficient and innovative solutions to my work. I have a multi-pronged approach to staying updated:
-    1. **Online Learning Platforms:** I regularly use platforms like Coursera, Udacity, and Pluralsight to take courses on emerging technologies and programming languages. This not only helps me learn new skills but also keeps me abreast of the latest developments in the tech world.
+    1. **Online Learning Platforms:** I regularly use platforms like Coursera and Udemy to take courses on emerging technologies and programming languages. This not only helps me learn new skills but also keeps me abreast of the latest developments in the tech world.
     2. **Industry News and Publications:** I follow key technology websites and blogs like TechCrunch, Wired, and Hacker News. This keeps me informed about the latest trends and breakthroughs in technology.
     3. **Community Engagement:** I am an active member of several online forums and local tech communities, such as Stack Overflow and GitHub. Participating in discussions and collaborating on open-source projects allows me to learn from peers and stay connected with the broader tech community.
     4. **Conferences and Meetups:** Attending industry conferences, webinars, and local meetups is another way I stay informed. These events provide insights into industry trends and offer networking opportunities with other professionals.

@@ -1,4 +1,3 @@
-
 ### How to remove unnecessary Effects.
 
 There are two common cases in which you don’t need Effects:

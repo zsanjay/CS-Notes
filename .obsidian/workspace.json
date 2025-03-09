@@ -1,0 +1,220 @@
+{
+  "main": {
+    "id": "e6d7f3189d685b7a",
+    "type": "split",
+    "children": [
+      {
+        "id": "dcbfea2ee42b48c7",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "77100fb7aa7ce011",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "DevOps/Kubernetes/Minikube and kubectl.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Minikube and kubectl"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9b162fd1b23be837",
+    "type": "split",
+    "children": [
+      {
+        "id": "c02bd20d18e617ad",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "33269066b8a058a7",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "988293f54f634646",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": true,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "cf048a9121a65bf8",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "992c28adbe340bf6",
+    "type": "split",
+    "children": [
+      {
+        "id": "0aed9dfb320f5c5a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2c315bfa4d5d4286",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "System Design/Design Problems/Design a distributed Message Queue.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Design a distributed Message Queue"
+            }
+          },
+          {
+            "id": "c5bba48b71e5c205",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "System Design/Design Problems/Design a distributed Message Queue.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Design a distributed Message Queue"
+            }
+          },
+          {
+            "id": "4c9753d548a75992",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "c5e2a53a92b6517d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "System Design/Design Problems/Design a distributed Message Queue.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Design a distributed Message Queue"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "77100fb7aa7ce011",
+  "lastOpenFiles": [
+    "DevOps/Kubernetes/Master Process (Control Plane).md",
+    "DevOps/Kubernetes/Kubernetes Commands.md",
+    "DevOps/Kubernetes/Kubernetes Deployment YAML File.md",
+    "DevOps/Kubernetes/Introduction.md",
+    "DevOps/Kubernetes/Demo Project - MongoDB and MongoExpress.md",
+    "Behavioral Questions/Behavioral  Interviews.md",
+    "Behavioral Questions/Invygo.md",
+    "20250122093727.png",
+    "assets/images/20250303120846.png",
+    "assets/images/20250303120537.png",
+    "assets/images/20250303120426.png",
+    "assets/images/20250303120404.png",
+    "assets/images/20250303120222.png",
+    "assets/images/20250303120154.png",
+    "assets/images/20250228112837.png",
+    "assets/images/20250227131614.png",
+    "assets/images/20250227131416.png",
+    "System Design/Design Problems/Design a Car Rental App.md",
+    "System Design/Algorithms/Rate Limiting Algorithms.md",
+    "Java/Important Interview Questions.md",
+    "System Design/Design Problems/Design a Distributed Cache.md",
+    "System Design/Design Problems/Design a distributed Message Queue.md",
+    "System Design/Design Problems/Design a Rate Limiter.md",
+    "Nodejs/Authentication.md",
+    "Nodejs/Routing.md",
+    "Nodejs/Middleware.md",
+    "Nodejs/Express js.md",
+    "Nodejs/Build a Web Server.md",
+    "Nodejs/Nodejs basics.md",
+    "Projects/Full Stack Project with Spring boot and Reactjs.md",
+    "Nodejs",
+    "DSA Questions/DSA Important Questions.md",
+    "AWS/Hands On Guides/Upload service  using AWS lambda and S3.md",
+    "AWS/Hands On Guides",
+    "Microservices/Patterns/Two Phase Commit.md",
+    "AWS/Untitled.md",
+    "Frontend/Javascript/core/Arrays.md",
+    "Frontend/Design Patterns/Factory Pattern.md",
+    "Git",
+    "Java",
+    "Frontend/Interview",
+    "Frontend/Typescript",
+    "search_autocomplete.pdf",
+    "Frontend/Nextjs/Routing",
+    "DevOps/Kubernetes",
+    "DevOps"
+  ]
+}

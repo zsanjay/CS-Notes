@@ -302,7 +302,6 @@ const listItems = chemists.map(person => { // Curly brace
 ```
 
 Arrow functions containing `=> {` are said to have a [“block body”.](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#function_body) They let you write more than a single line of code, but you _have to_ write a `return` statement yourself. If you forget it, nothing gets returned!
-
 ### Displaying several DOM nodes for each list item.
 
 What do you do when each item needs to render not one, but several DOM nodes?
@@ -383,7 +382,7 @@ return (
 }
 ```
 
-Notice how `onClick={handleClick}` has no parentheses at the end! Do not _call_ the event handler function: you only need to _pass it down_. React will call your event handler when the user clicks the button.
+Notice how `onClick={handleClick}` has no parentheses `()` at the end! Do not _call_ the event handler function: you only need to _pass it down_. React will call your event handler when the user clicks the button.
 
 ## Updating the screen.
 

@@ -244,7 +244,6 @@ In this example, `itemsRef` doesn’t hold a single DOM node. Instead, it holds 
 ```
 
 This lets you read individual DOM nodes from the Map later.
-
 ### Accessing another component’s DOM nodes.
 
 ### Pitfall
@@ -296,6 +295,8 @@ export default function MyForm() {
 ```
 
 #### Exposing a subset of the API with an imperative handle.
+
+https://www.youtube.com/watch?v=zpEyAOkytkU
 
 In the above example, the ref passed to `MyInput` is passed on to the original DOM input element. This lets the parent component call `focus()` on it. However, this also lets the parent component do something else—for example, change its CSS styles. In uncommon cases, you may want to restrict the exposed functionality. You can do that with [`useImperativeHandle`](https://react.dev/reference/react/useImperativeHandle):
 

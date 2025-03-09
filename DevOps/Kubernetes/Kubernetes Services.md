@@ -1,5 +1,5 @@
 
-![[20250116121043.png]]
+![Kub20250116121043](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116121043.png)
 
 Kubernetes Services are resources that map network traffic to the Pods in your cluster. You need to create a Service each time you expose a set of Pods over the network, whether within your cluster or externally.
 
@@ -19,7 +19,7 @@ DNS for Services is enabled automatically through the Kubernetes [service disco
 
 All Kubernetes Services ultimately forward network traffic to a set of Pods they represent. However, several different types of Service exist with their own characteristics and use cases. Here’s how the five currently available options compare.
 
-![[20250116150519.png]]
+![Kub20250116150519](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116150519.png)
 
 ### 1. ClusterIP Services
 
@@ -27,58 +27,59 @@ ClusterIP Services assign an IP address that can be used to reach the Service fr
 
 ClusterIP is the default service type used when you don’t specify an alternative option. It’s the most common kind of service you’ll use as it enables simple internal networking for your workloads.
 
-![[20250116121348.png]]
+![Kub20250116121348](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116121348.png)
 
-![[20250116131846.png]]
+![Kub20250116131846](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116131846.png)
 
-![[20250116131720.png]]
+![Kub20250116131720](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116131720.png)
+
 #### Multi-Port Services
 
-![[20250116132654.png]]
+![Kub20250116132654](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116132654.png)
 
 ### Port vs Target Port
 
-![[20250116132429.png]]
+![Kub20250116132429](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116132429.png)
 
 ### Service Endpoints
 
-![[20250116132325.png]]
+![Kub20250116132325](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116132325.png)
 
 ### 2. Headless Services
 
 [Headless services](https://kubernetes.io/docs/concepts/services-networking/service/#headless-services) are a special type of Service that don’t provide load balancing or a cluster IP address. They’re “headless” because Kubernetes doesn’t automatically proxy any traffic through them. This allows you to use DNS lookups to discover the individual IP addresses of any pods selected by the service.
 
-![[20250116144219.png]]
+![Kub20250116144219](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116144219.png)
 A headless service is useful when you want to interface with other service discovery systems without [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy) interfering. You can create one by specifically setting a Service’s `spec.clusterIP` field to the `None` value.
 
-![[20250116145007.png]]
+![20250116145007](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116145007.png)
 
 
-![[20250116145129.png]]
+![20250116145129](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116145129.png)
 
-![[20250116145411.png]]
+![20250116145411](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116145411.png)
 
-![[20250116145616.png]]
+![20250116145616](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116145616.png)
 
 ### NodePort Services
 
-![[20250116150558.png]]
+![20250116150558](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116150558.png)
 
-![[20250116150651.png]]
+![20250116150651](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116150651.png)
 
 NodePort Services are exposed externally through a specified static port binding on each of your Nodes. Hence, you can access the Service by connecting to the port on any of your cluster’s Nodes. NodePort Services are also assigned a cluster IP address that can be used to reach them within the cluster, just like ClusterIP Services.
 
-![[20250116150731.png]]
+![20250116150731](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116150731.png)
 
-![[20250116150901.png]]
+![20250116150901](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116150901.png)
 
-![[20250116151052.png]]
+![20250116151052](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116151052.png)
 
-![[20250116151337.png]]
+![20250116151337](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116151337.png)
 
-![[20250116151438.png]]
+![20250116151438](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116151438.png)
 
-![[20250116151550.png]]
+![20250116151550](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250116151550.png)
 
 Use of NodePort Services is generally unadvisable. They have functional limitations and can lead to security issues:
 
@@ -91,20 +92,19 @@ When a NodePort Service is used, it’s generally to facilitate the use of your 
 
 ### LoadBalancer Services
 
-
-![[20250117094334.png]]
-
-
-![[20250117094404.png]]
+![20250117094334](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250117094334.png)
 
 
-![[20250117094449.png]]
+![20250117094404](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250117094404.png)
+
+
+![20250117094449](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250117094449.png)
 
 LoadBalancer Services are exposed outside your cluster using an external load balancer resource. This requires a connection to a load balancer provider, typically achieved by integrating your cluster with your cloud environment. Creating a LoadBalancer service will then automatically provision a new load balancer infrastructure component in your cloud account. This functionality is automatically configured when you use a managed Kubernetes service such as Amazon EKS or Google GKE.
 
 Once you’ve created a LoadBalancer service, you can point your public DNS records to the provisioned load balancer’s IP address. This will then direct traffic to your Kubernetes Service. Therefore, LoadBalancers are the Service type you should normally use when you need an app to be accessible outside Kubernetes.
 
-![[20250117094620.png]]
+![20250117094620](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250117094620.png)
 ### Which Service type should I use?
 
 The correct Kubernetes Service type for a particular workload primarily depends on whether you’ll need external access. If you will interact with a Service from outside Kubernetes, then LoadBalancers should be preferred. A NodePort Service can be useful instead if you can accept its tradeoffs, a load balancer integration is unavailable, or you plan to implement your own load balancing solution.
@@ -133,7 +133,7 @@ To use Ingresses, you have to run an [Ingress controller](https://kubernetes.io
 
 [Ingresses](https://kubernetes.io/docs/concepts/services-networking/ingress) are closely related objects. These are used to set up HTTP routes to services via a [load balancer](https://spacelift.io/blog/kubernetes-load-balancer). Ingresses also support HTTPS traffic secured by TLS certificates.
 
-![[20250117094657.png]]
+![20250117094657](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20250117094657.png)
 
 
 ### References

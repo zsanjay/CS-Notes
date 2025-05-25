@@ -341,7 +341,7 @@ Horizontal Scaling
 
 - Managing a large number of instances presents complexities. Ensuring smooth deployment and effective rollback procedures adds to the operational challenges.
 
-![[20241203131138.png]]
+![Horizontal Scaling](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241203131138.png)
 
 
 ### 3) How will the system ensure a good user experience during high-demand events with millions simultaneously booking tickets?
@@ -378,7 +378,7 @@ Long wait times in the queue might lead to user frustration, especially if the e
 
 #### Virtual Waiting Queue
 
-![[20241203131650.png]]
+![Virtual Waiting Queue](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241203131650.png)
 
 ### 4) How can you improve search to ensure we meet our low latency requirements?
 
@@ -439,7 +439,7 @@ Add [Elasticsearch](https://www.hellointerview.com/learn/system-design/deep-dive
     
 - Maintaining an Elasticsearch cluster adds additional infrastructure complexity and cost.
 
-![[20241203132904.png]]
+![Approach](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241203132904.png)
 
 
 ### 5) How can you speed up frequently repeated search queries and reduce load on our search infrastructure?
@@ -487,7 +487,7 @@ As you progress through the deep dives, you should be updating your design to re
 
 ### Final Design
 
-![[20241203133458.png]]
+![Final Design](https://github.com/zsanjay/Obsidian-Notes/blob/main/assets%2Fimages%2F20241203133458.png)
 
 
 *Visual communication is important! Your interviewer is busy. They are likely going to wrap up the interview, go into a long day of meetings, go home tired, and then come back the next morning to remember that they need to write feedback for the interview they conducted the day before. They're then going to pull up your design and try to remember what you said. Make their life easier and improve your own chances by making your visual design as clear as possible.*

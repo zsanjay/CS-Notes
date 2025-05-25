@@ -36,7 +36,7 @@ EDA is widely used in modern applications that require high scalability, loose c
         - **Complex Event Processing (CEP)**: Combining multiple events or applying rules to detect patterns in events over time.
 
 6. **Event Store**:
-    
+
     - An **event store** is a specialized database or storage mechanism used to persist events. Event stores often keep a complete log of all events (event sourcing) that have occurred in the system, making it possible to rebuild the state of the system at any point in time.
     - Examples include **Event Sourcing** architectures and systems like **Apache Kafka** or **EventStoreDB**.
 
@@ -68,9 +68,11 @@ EDA is widely used in modern applications that require high scalability, loose c
 12. **Data Consistency**:
     
     - Maintaining consistency in distributed systems can be challenging when events are processed out of order or if there is network partitioning (for example, during the **CAP theorem** trade-offs).
+
 13. **Testing and Debugging**:
     
     - Event-driven systems can be harder to test, especially when multiple events interact asynchronously. Reproducing complex event-driven scenarios can be difficult, and it might require specialized tools for debugging and tracing events.
+
 14. **Latency**:
     
     - Event-driven systems can introduce latency, especially in systems with complex event processing or when events are processed across many distributed nodes.

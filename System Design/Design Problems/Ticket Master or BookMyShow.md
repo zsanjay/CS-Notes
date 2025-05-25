@@ -1,5 +1,7 @@
 
-**What is [Ticketmaster](https://www.ticketmaster.com/)?** Ticketmaster is an online platform that allows users to purchase tickets for concerts, sports events, theater, and other live entertainment.
+**What is [Ticketmaster](https://www.ticketmaster.com/)?** 
+
+Ticketmaster is an online platform that allows users to purchase tickets for concerts, sports events, theater, and other live entertainment.
 
 ### [Functional Requirements](https://www.hellointerview.com/learn/system-design/in-a-hurry/delivery#1-functional-requirements)
 
@@ -14,8 +16,7 @@
     2. **Read vs write ratio:** is this a read heavy system or write heavy? Are either notably heavy for any reason?
     
     3. **Query access pattern:** Is the access pattern of the system regular or are their patterns or bursts that require particular attention. For example, the holidays for shopping sites or popular events for ticket booking.
-    
-    
+
 
 **Core Requirements**
 
@@ -41,13 +42,9 @@
 **Below the line (out of scope):**
 
 1. The system should protect user data and adhere to GDPR
-
 2. The system should be fault tolerant
-
 3. The system should provide secure transactions for purchases
-
 4. The system should be well tested and easy to deploy (CI/CD pipelines)
-
 5. The system should have regular backups
 
 
@@ -236,7 +233,6 @@ When it comes to unlocking, there are two cases we need to consider:
 
 2. If the user takes too long or abandons the purchase, the system has to rely on their subsequent actions or session timeouts to release the lock. This introduces the risk of tickets being locked indefinitely if not appropriately handled.
 
-
 ###### Challenges
 
 Why is this a bad idea? Well, database locks are meant to be used for short periods of time (a single, near-instant, transaction). Keeping a transaction open for a long period (like the 5-minute lock duration) is generally not advisable. It can strain database resources and increase the risk of lock contention and deadlocks. Additionally, SQL DBs like PostgreSQL doesn't natively support lock timeouts within transactions. Implementing a timeout would require application-level management and additional complexity. Finally, this approach may not scale well under high load, as prolonged locks can lead to increased wait times for other users and potential performance bottlenecks. Handling edge cases, such as application crashes or network issues, becomes more challenging, as these could leave locks in an uncertain state.
@@ -345,7 +341,7 @@ Horizontal Scaling
 
 - Managing a large number of instances presents complexities. Ensuring smooth deployment and effective rollback procedures adds to the operational challenges.
 
-![[Pasted image 20241203131138.png]]
+![[20241203131138.png]]
 
 
 ### 3) How will the system ensure a good user experience during high-demand events with millions simultaneously booking tickets?
@@ -382,7 +378,7 @@ Long wait times in the queue might lead to user frustration, especially if the e
 
 #### Virtual Waiting Queue
 
-![[Pasted image 20241203131650.png]]
+![[20241203131650.png]]
 
 ### 4) How can you improve search to ensure we meet our low latency requirements?
 
@@ -443,7 +439,7 @@ Add [Elasticsearch](https://www.hellointerview.com/learn/system-design/deep-dive
     
 - Maintaining an Elasticsearch cluster adds additional infrastructure complexity and cost.
 
-![[Pasted image 20241203132904.png]]
+![[20241203132904.png]]
 
 
 ### 5) How can you speed up frequently repeated search queries and reduce load on our search infrastructure?
@@ -491,7 +487,7 @@ As you progress through the deep dives, you should be updating your design to re
 
 ### Final Design
 
-![[Pasted image 20241203133458.png]]
+![[20241203133458.png]]
 
 
 *Visual communication is important! Your interviewer is busy. They are likely going to wrap up the interview, go into a long day of meetings, go home tired, and then come back the next morning to remember that they need to write feedback for the interview they conducted the day before. They're then going to pull up your design and try to remember what you said. Make their life easier and improve your own chances by making your visual design as clear as possible.*

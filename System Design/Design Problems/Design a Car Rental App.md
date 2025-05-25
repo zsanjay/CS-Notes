@@ -110,6 +110,7 @@ The database should store information about users, cars, bookings, payments, etc
     - `payment_status`: Paid, Pending, Failed
     - `created_at`
     - `updated_at`
+
 6. **Payments**:
     
     - `payment_id`: Primary key (UUID)

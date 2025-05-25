@@ -37,11 +37,10 @@ The cost of each invocation is a function of the duration of the invocation, whi
 The benefits of using serverless deployment include:
 
 - It eliminates the need to spend time on the undifferentiated heavy lifting of managing low-level infrastructure. Instead, you can focus on your code.
-    
+
 - The serverless deployment infrastructure is extremely elastic. It automatically scales your services to handle the load.
-    
+
 - You pay for each request rather than provisioning what might be under utilized virtual machines or containers.
-    
 
 The drawbacks of serverless deployment include:
 

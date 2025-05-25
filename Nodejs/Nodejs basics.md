@@ -96,7 +96,6 @@ const sub = a => b => a - b;
 const mul = a => b => a * b;
 const divide = a => b => a / b;
 
-  
 module.exports = { add , sub, mul, divide }
 ```
 
@@ -152,7 +151,6 @@ fs.readFile(path.join(__dirname, 'files', 'starter.txt'), (err, data) => {
 	console.log(data.toString());
 });
 
-  
 
 fs.writeFile(path.join(__dirname, 'files', 'reply.txt'), 'Nice to meet you.', (err) => {
 	if (err) throw err;
@@ -173,7 +171,6 @@ fs.writeFile(path.join(__dirname, 'files', 'reply.txt'), 'Nice to meet you.', (e
 })
 
 })
-
 
 
 process.on('uncaughtException', err => {
@@ -237,7 +234,6 @@ if(!fs.existsSync('./new')) {
 		console.log('Directory Created');
 	})
 }
-
 
 if(fs.existsSync('./new')) {
 	fs.rmdir('./new', (err) => {

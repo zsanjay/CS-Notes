@@ -8,9 +8,9 @@ Result - How it benefits user? Measurable? What experience you gained?
 
 #### 1. Tell me about yourself?
 
-My name is Sanjay Mehta, Currently, I am working as  a senior software engineer with Hidubai and I have over six years of experience in designing, developing and maintaining robust scalable solutions. I have started my career in 2018 as a software engineer with Ioptibiz solutions Pvt ltd, which was an ERP product based startup, where I was responsible for create ATS workflow and implementation of various new features like bench management etc, which laid a solid foundation in programming and problem-solving skills. 
+My name is Sanjay Mehta, I was born and brought up in Delhi, India. Currently, I am working as  a senior software engineer with Hidubai and I have over six years of experience in designing, developing and maintaining robust scalable solutions. I have started my career in 2018 as a software engineer with Ioptibiz solutions Pvt ltd, which was an ERP product based startup, where I was responsible for create ATS workflow and implementation of various new features like bench management etc, which laid a solid foundation in programming and problem-solving skills. 
 
-Throughout my career, I have worked with various frameworks and programming languages, including Java , Spring Framework, AWS, Javascript, and React js. I have a strong background in developing web and enterprise application. In my most recent role was with Ernst and Young, where I was responsible for designing and developing the cloud based server less architecture of the video based annual pension statement system. This project not only honed my technical skills but also improved my abilities in teamwork and communication.
+Throughout my career, I have worked with various frameworks and programming languages, including Java , Spring Framework, Hibernate, AWS, HTML, CSS, Javascript, and React js. I have a strong background in developing web and enterprise application. In my most recent role was with Ernst and Young, where I was responsible for designing and developing the cloud based server less architecture of the video based annual pension statement system. This project not only honed my technical skills but also improved my abilities in teamwork and communication.
 
 In my current role, with Hidubai, which is a business directory, where user can find all the local businesses in Dubai and make informed decision based on the reviews and ratings and My role is to design and develop various micro services like search service and upload service and as well as I collaborate with the team members on various parts of the application.
 
@@ -160,7 +160,6 @@ When interviewing for a **Senior Software Engineer** position, you might be as
 - **Communicate with stakeholders** and provide technical clarity.
 - **Stay updated with new technologies** and best practices.
 
-
 - **How do you prioritize your tasks and manage your time?**
 
 "To prioritize my tasks, I start by aligning with the team’s and business’s goals. I break down larger tasks into smaller, manageable ones and use frameworks like the **Eisenhower Matrix** to determine what’s urgent and important.
@@ -185,7 +184,7 @@ Designing a system for generating **video benefit statements** in a **serverl
 
 ### **Situation:**
 
-You are tasked with building a **serverless** solution for generating **video benefit statements** for users. These video statements are personalized videos that highlight user benefits, policies, and other relevant details, likely requiring heavy **media processing**, **data aggregation**, and **third-party integrations**. The challenge is to design this system in such a way that it can **scale** for thousands of concurrent requests, while avoiding **throttling issues** that might arise due to AWS limits and service rate limits.
+You are tasked with building a **server less** solution for generating **video benefit statements** for users. These video statements are personalized videos that highlight user benefits, policies, and other relevant details, likely requiring heavy **media processing**, **data aggregation**, and **third-party integrations**. The challenge is to design this system in such a way that it can **scale** for thousands of concurrent requests, while avoiding **throttling issues** that might arise due to AWS limits and service rate limits.
 
 ### **Key Challenges with Throttling in Server less Architectures:**
 
@@ -201,7 +200,7 @@ You are tasked with building a **serverless** solution for generating **video
 
 ### **How to Address Throttling and Design a Scalable Solution:**
 
-Here’s how you can design the **video benefit statement generation system** using **AWS serverless architecture** and mitigate throttling issues:
+Here’s how you can design the **video benefit statement generation system** using **AWS server less architecture** and mitigate throttling issues:
 
 ---
 

@@ -28,11 +28,11 @@ This is why you need a [container orchestration tool](https://devopscube.com/do
 
 Kubernetes helps in scaling applications, self-healing, and rolling updates, making it well-suited for running containers.
 
-### Microservices Deployment/Orchestration
+### Micro services Deployment/Orchestration
 
-Now, let’s say, you have a big application that is composed of [microservices](https://opensource.com/resources/what-are-microservices) (APIs, UI, user management, credit card transaction system, etc). All these microservice components have to talk to each other using REST APIs or other protocols.
+Now, let’s say, you have a big application that is composed of [microservices](https://opensource.com/resources/what-are-microservices) (APIs, UI, user management, credit card transaction system, etc). All these micro service components have to talk to each other using REST APIs or other protocols.
 
-As the application has many components or microservices, we cannot deploy all the services in one server or a container. The applications have to be decoupled and each microservice should be deployed and scaled on its own. This makes application development and deployment easier and faster.
+As the application has many components or micro services, we cannot deploy all the services in one server or a container. The applications have to be decoupled and each micro service should be deployed and scaled on its own. This makes application development and deployment easier and faster.
 
 In this scenario, the complexity lies in **networking, shared file systems, load balancing, and [service discovery](https://devopscube.com/service-discovery-explained/)**. Here is where Kubernetes comes into the picture. It helps in orchestrating complex processes in a manageable way.
 
@@ -64,7 +64,6 @@ While your fresh cluster has only one node, Kubernetes advertises support for [
 [Pods](https://kubernetes.io/docs/concepts/workloads/pods) are the fundamental compute unit in Kubernetes. A Pod is analogous to a container but with some key differences. Pods can contain multiple containers, each of which share a context. The entire Pod will always be scheduled onto the same node. The containers within a Pod are tightly coupled so you should create a new Pod for each distinct part of your application, such as its API and database.
 
 In simple situations, Pods will usually map one-to-one with the containers your application runs. In more advanced cases, Pods can be enhanced with [init containers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers) and [ephemeral containers](https://kubernetes.io/docs/concepts/workloads/pods/ephemeral-containers) to customize startup behavior and provide detailed debugging.
-
 ### [[Kubernetes Services]]
 
 ### What Is Kubectl-Port-Forward & Why Do We Use It in Kubernetes?

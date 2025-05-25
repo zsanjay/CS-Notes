@@ -12,7 +12,6 @@ How to understand the behavior of an application and troubleshoot problems?
 - External monitoring only tells you the overall response time and number of invocations - no insight into the individual operations
 - Any solution should have minimal runtime overhead
 - Log entries for a request are scattered across numerous logs
-
 ## Solution
 
 Instrument services with code that
@@ -90,9 +89,7 @@ This pattern has the following benefits:
 - It enables developers to see how an individual request is handled by searching across [aggregated logs](https://microservices.io/patterns/observability/application-logging.html) for its external request id
 
 This pattern has the following issues:
-
 - Aggregating and storing traces can require significant infrastructure
-
 ## Related patterns
 
 - [Log aggregation](https://microservices.io/patterns/observability/application-logging.html) - the external request id is included in each log message

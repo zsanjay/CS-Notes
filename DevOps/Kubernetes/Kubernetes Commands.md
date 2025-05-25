@@ -263,7 +263,7 @@ metadata:
 	name: nginx-deployment
 	labels:
 		app: nginx
-spec:
+spec: // specification for deployment
 	replicas: 1
 	selector:
 		matchLabels:
@@ -272,7 +272,7 @@ spec:
 		metadata:
 			labels:
 				app: nginx
-		spec:
+		spec: // specification for pod
 			containers:
 			- name: nginx
 			  image: nginx:1.16
@@ -284,7 +284,7 @@ To create deployment
 
 ```shell
 kubectl apply -f nginx-deployment.yaml
-deployment.apps/nginx-deployment created
+deployment.apps/nginx-deployment created - new deployment that why the message is created.
 ```
 
 Editing the deployment and changing replicas from 1 to 2.
@@ -317,7 +317,7 @@ Now the deployment is edited or configured. When we create the deployment first 
 
 ```shell
 kubectl apply -f nginx-deployment.yaml
-deployment.apps/nginx-deployment configured
+deployment.apps/nginx-deployment configured - Editing old deployment, that's why the message is configured.
 
 kubectl get replicaset                
 
